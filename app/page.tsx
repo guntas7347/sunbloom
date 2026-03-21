@@ -393,21 +393,16 @@ const App = () => {
                   </div>
                 </div>
                 <div className="rounded-2xl overflow-hidden shadow-inner bg-slate-200 h-64 relative border border-slate-300 dark:border-slate-700">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                      backgroundImage:
-                        "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVGrtifqLWm3hZoK4tC00ChprftH8oa94FqOXkxoqj-us4mqZK94yYXY3R_sSUarNVVLGzkVyllsB4oLIlAPV5qAoCwzuARrQNaktKbhkpVNd4SBdvyFCZadO-amU5XZ6DbY-JANSNp0tXiqDrlpc-71ig_G6hxNzMwjCH6uD8O-sR12aiWZBe5bR1wyyRkvuukaCd9QWwLAN7RUCfxw0O1KXVChFtIHGMexf0jGqRMJL865BvPoCgRDJzw1xrLatwAs4FnokTK34')",
-                    }}
-                  ></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
-                      <MapPin className="text-primary" size={16} />
-                      <span className="text-xs font-bold">
-                        Sunbloom Immigration
-                      </span>
-                    </div>
-                  </div>
+                  <iframe
+                    src="https://www.google.com/maps?q=Sturgeon+County,+AB,+Canada&output=embed"
+                    width="100%"
+                    height="450"
+                    style={{ border: "0" }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Sturgeon County, AB, Canada — Serving clients globally"
+                  ></iframe>
                 </div>
               </div>
               <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
