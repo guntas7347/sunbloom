@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/Components/Header";
+import Footer from "@/Components/Footer";
 
 export const metadata: Metadata = {
   title: "Sunbloom Immigration Ltd.",
@@ -17,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-white dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
-        {children}
+        <Header /> {children} <Footer />
       </body>
     </html>
   );

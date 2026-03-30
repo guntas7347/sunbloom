@@ -9,20 +9,14 @@ import FAQ from "../Components/FAQ";
 
 const App = () => {
   return (
-    <div className="bg-white dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
-      <Header />
-
-      <main>
-        <Hero />
-        <Services />
-        <About />
-        <Appointment />
-        <FAQ />
-        <Contact />
-      </main>
-
-      <Footer />
-    </div>
+    <main>
+      <Hero />
+      <Services />
+      <About />
+      <Appointment />
+      <FAQ />
+      <Contact />
+    </main>
   );
 };
 

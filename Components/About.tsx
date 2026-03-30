@@ -1,10 +1,17 @@
 import React from "react";
-import { User, ExternalLink, MapPin, Phone, ShieldCheck } from "lucide-react";
+import {
+  User,
+  ExternalLink,
+  MapPin,
+  Phone,
+  ShieldCheck,
+  GraduationCap,
+} from "lucide-react";
 
 const About = () => {
   return (
     <section id="about" className="py-32 bg-white dark:bg-background-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           <div className="flex-1">
             <h2 className="text-3xl font-bold mb-6">
@@ -20,7 +27,7 @@ const About = () => {
             <div className="bg-background-alt dark:bg-slate-800 p-10 rounded-2xl shadow-sm border border-primary-light">
               <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                 <User className="text-primary" />
-                Founder & Principle Immigration Consultant
+                Founder & Principal Immigration Consultant
               </h3>
               <p className="text-slate-900 dark:text-slate-100 font-bold text-lg mb-1">
                 Rajveer Kaur Gill
@@ -44,6 +51,35 @@ const About = () => {
             </div>
           </div>
           <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            <div className="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm col-span-1 md:col-span-2">
+              <GraduationCap className="text-primary mb-4" />
+              <h4 className="font-bold mb-3">Professional Qualifications</h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2.5">
+                  <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-primary" />
+                  <div>
+                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
+                      Graduate Diploma in Immigration and Citizenship Law
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                      Queen&apos;s University &mdash; Kingston, Canada
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-primary" />
+                  <div>
+                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
+                      Bachelor of Science in Nursing
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                      University College of Nursing, Faridkot &mdash; Baba Farid
+                      University of Health Sciences, Faridkot
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>{" "}
             <div className="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
               <MapPin className="text-primary mb-4" />
               <h4 className="font-bold mb-2">Address</h4>

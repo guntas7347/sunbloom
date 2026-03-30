@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/lib/useTheme";
+import Link from "next/link";
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
@@ -20,17 +21,17 @@ const Header = () => {
 
   return (
     <nav className="sticky top-0 z-50 w-full glass-effect border-b border-primary-light">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <div className="text-primary size-8">
               <img src="/sunbloom-logo.png" alt="Sunbloom Immigration Ltd." />
             </div>
             <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
               Sunbloom Immigration Ltd.
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -53,9 +54,12 @@ const Header = () => {
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </button>
 
-            <button className="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold shadow-sm hover:bg-primary/90 transition-all">
-              Book Appointment
-            </button>
+            <Link
+              href="/intake-form"
+              className="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold shadow-sm hover:bg-primary/90 transition-all"
+            >
+              Intake Form
+            </Link>
           </div>
 
           {/* Mobile Buttons */}

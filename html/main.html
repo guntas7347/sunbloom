@@ -1,404 +1,768 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Sunbloom Immigration Ltd. - Trusted Canadian Immigration Services</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#97144d",
-                        "primary-light": "#f8c9dc",
-                        "background-light": "#ffffff",
-                        "background-alt": "#fdf6f9",
-                        "background-dark": "#211117",
-                    },
-                    fontFamily: {
-                        "display": ["Public Sans", "sans-serif"]
-                    },
-                    borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
-                },
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>
+      Sunbloom Immigration Ltd. - Trusted Canadian Immigration Services
+    </title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#97144d",
+              "primary-light": "#f8c9dc",
+              "background-light": "#ffffff",
+              "background-alt": "#fdf6f9",
+              "background-dark": "#211117",
             },
-        }
+            fontFamily: {
+              display: ["Public Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
     </script>
-<style>
-        body {
-            font-family: "Public Sans", sans-serif;
-        }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(8px);
-        }
+    <style>
+      body {
+        font-family: "Public Sans", sans-serif;
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+      }
     </style>
-</head>
-<body class="bg-white dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
-<nav class="sticky top-0 z-50 w-full glass-effect border-b border-primary-light">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex justify-between items-center h-16">
-<div class="flex items-center gap-2">
-<div class="text-primary size-8">
-<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill-rule="evenodd"></path>
-</svg>
-</div>
-<span class="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">Sunbloom Immigration Ltd.</span>
-</div>
-<div class="hidden md:flex items-center gap-8">
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#home">Home</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#services">Services</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#about">About</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#appointment">Appointment</a>
-<a class="text-sm font-medium hover:text-primary transition-colors" href="#contact">Contact</a>
-<button class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold shadow-sm hover:bg-primary/90 transition-all">
-                        Book Appointment
-                    </button>
-</div>
-<div class="md:hidden flex items-center">
-<span class="material-symbols-outlined cursor-pointer">menu</span>
-</div>
-</div>
-</div>
-</nav>
-<section class="relative overflow-hidden pt-24 pb-32 lg:pt-40 lg:pb-52 bg-gradient-to-br from-primary-light/30 via-white to-white dark:from-background-dark dark:via-background-dark dark:to-background-dark" id="home">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12">
-<div class="flex-1 text-center lg:text-left">
-<h1 class="text-5xl lg:text-7xl font-black leading-tight tracking-tight text-slate-900 dark:text-slate-100">
-                    Trusted Canadian <br/><span class="text-primary">Immigration Services</span>
-</h1>
-<p class="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0">
-                    Helping clients bloom in Canada with expert guidance and personalized immigration solutions. Your journey to a new life starts with professional care.
-                </p>
-<div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
-<a class="bg-primary text-white px-10 py-5 rounded-lg font-bold shadow-lg hover:shadow-xl hover:translate-y-[-2px] transition-all" href="#appointment">
-                        Book Consultation
-                    </a>
-<a class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-lg font-bold shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all" href="#services">
-                        View Services
-                    </a>
-</div>
-</div>
-<div class="flex-1 w-full relative">
-<div class="aspect-square bg-gradient-to-tr from-primary/30 to-primary/5 rounded-full absolute -top-10 -right-10 blur-3xl opacity-50"></div>
-<div class="relative z-10 w-full max-w-lg mx-auto aspect-video rounded-xl bg-slate-200 shadow-2xl overflow-hidden border-4 border-white dark:border-slate-800" data-alt="Abstract beautiful Canadian landscape at sunrise" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALyRNfDzvUwdvURElQRJfV_UQphPv-DirhtXr1D16RSWvSY3b03kt33SDku1-mmYmqGVgba6aT7_A3GsAwYbT2P_cjAYVW3nb2NJHEl3IAVkDQdvZLxMsG1Iqd_iRcVtJ87gOHJ2QNPUTEZuwRkIfXjI1jOD-EmoAnTC_G97EJvz79QgMDfaiCzN-0XtvszNrTVYUSS8KXO8anHfnhscDU0ELJBCxbAkf7HDBWwcLhw-aJwWvx4V6n7rrdtfhOGEFrWT-qL3rI6vw'); background-size: cover; background-position: center;">
-</div>
-<div class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-lg flex items-center gap-3">
-<div class="bg-primary/20 p-2 rounded-full">
-<span class="material-symbols-outlined text-primary">verified</span>
-</div>
-<div>
-<p class="text-xs font-bold text-slate-400">Licensed Consultant</p>
-<p class="text-sm font-black">CICC Authorized</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-32 bg-background-alt/50 dark:bg-background-dark/50" id="services">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">Our Professional Services</h2>
-<div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
-<p class="mt-4 text-slate-600 dark:text-slate-400">Comprehensive support for all your Canadian immigration needs</p>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">flight_takeoff</span>
-<h3 class="text-lg font-bold mb-2">Visitor Visa</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Explore Canada for tourism, family visits, or short business trips.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">family_restroom</span>
-<h3 class="text-lg font-bold mb-2">Super Visa</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Long-term stay options for parents and grandparents of citizens/PRs.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">school</span>
-<h3 class="text-lg font-bold mb-2">Study Permit</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Obtain authorization to study at designated learning institutions (DLI).</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">work</span>
-<h3 class="text-lg font-bold mb-2">Work Permit</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Closed or open work permits for foreign workers in Canada.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">home_pin</span>
-<h3 class="text-lg font-bold mb-2">Permanent Residency</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Transition to living permanently in Canada through various pathways.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">workspace_premium</span>
-<h3 class="text-lg font-bold mb-2">Citizenship</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">The final step in your journey to become a Canadian citizen.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">card_travel</span>
-<h3 class="text-lg font-bold mb-2">PRTD</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Travel documents for permanent residents without valid PR cards.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">bolt</span>
-<h3 class="text-lg font-bold mb-2">Express Entry</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Fast-tracked economic immigration for skilled workers.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">map</span>
-<h3 class="text-lg font-bold mb-2">PNP</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Provincial Nominee Programs tailored to local economic needs.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">business_center</span>
-<h3 class="text-lg font-bold mb-2">Business Visa</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Invest, start a business, or expand your operations in Canada.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">favorite</span>
-<h3 class="text-lg font-bold mb-2">Spousal Sponsorship</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Unite with your loved ones through family class sponsorship.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">history_edu</span>
-<h3 class="text-lg font-bold mb-2">PGWP</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Post-Graduation Work Permit for international students.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">diversity_1</span>
-<h3 class="text-lg font-bold mb-2">SOWP</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Spousal Open Work Permit for partners of students/workers.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">description</span>
-<h3 class="text-lg font-bold mb-2">LMIA Process</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Assistance for employers applying for Labour Market Impact Assessment.</p>
-</div>
-<div class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all">
-<span class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform">gavel</span>
-<h3 class="text-lg font-bold mb-2">Refugee Services</h3>
-<p class="text-sm text-slate-600 dark:text-slate-400">Professional support for asylum and refugee applications.</p>
-</div>
-</div>
-</div>
-</section>
-<section class="py-32 bg-white dark:bg-background-dark" id="about">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex flex-col lg:flex-row gap-16 items-center">
-<div class="flex-1">
-<h2 class="text-3xl font-bold mb-6">About Sunbloom Immigration</h2>
-<p class="text-lg mb-6 text-slate-600 dark:text-slate-400">
-                        Sunbloom Immigration Ltd. is a dedicated consultancy firm incorporated under the <strong>Canada Business Corporations Act</strong>. We provide expert legal guidance to individuals and families seeking to navigate the complex Canadian immigration landscape.
-                    </p>
-<div class="bg-background-alt dark:bg-slate-800 p-10 rounded-2xl shadow-sm border border-primary-light">
-<h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">account_circle</span>
-                            Meet Our Lead Consultant
-                        </h3>
-<p class="text-slate-900 dark:text-slate-100 font-bold text-lg mb-1">Rajveer Kaur Gill</p>
-<p class="text-slate-600 dark:text-slate-400 text-sm mb-4">RCIC Consultant | College ID: R1054053</p>
-<p class="text-sm text-slate-600 dark:text-slate-400 mb-6">
-                            Authorized by the College of Immigration and Citizenship Consultants (CICC) to provide professional immigration advice and representation.
-                        </p>
-<a class="inline-flex items-center gap-2 text-white font-bold bg-primary px-8 py-3 rounded-lg hover:bg-primary/90 transition-all" href="#">
-                            Verify License
-                            <span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</div>
-<div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-<div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
-<span class="material-symbols-outlined text-primary mb-4">location_on</span>
-<h4 class="font-bold mb-2">Address</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400">
-                            25415 Terrault Rd<br/>Sturgeon County, AB T8T 0C6<br/>Canada
-                        </p>
-</div>
-<div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
-<span class="material-symbols-outlined text-primary mb-4">call</span>
-<h4 class="font-bold mb-2">Phone</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400">
-                            289-885-4848
-                        </p>
-</div>
-<div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm col-span-1 md:col-span-2">
-<span class="material-symbols-outlined text-primary mb-4">verified_user</span>
-<h4 class="font-bold mb-2">Legal Status</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400">
-                            Incorporated under Canada Business Corporations Act. Fully compliant with CICC regulations.
-                        </p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-32 bg-background-alt/30 dark:bg-slate-900" id="appointment">
-<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center mb-12">
-<h2 class="text-3xl font-bold">Book an Appointment</h2>
-<p class="mt-2 text-slate-600 dark:text-slate-400">Schedule your professional consultation today</p>
-</div>
-<div class="bg-background-light dark:bg-slate-800 p-8 rounded-2xl shadow-xl">
-<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="col-span-1">
-<label class="block text-sm font-bold mb-2">Full Name</label>
-<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary" placeholder="Enter your name" type="text"/>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-bold mb-2">Email Address</label>
-<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary" placeholder="email@example.com" type="email"/>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-bold mb-2">Phone Number</label>
-<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary" placeholder="289-885-4848" type="tel"/>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-bold mb-2">Select Service</label>
-<select class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary">
-<option>Visitor Visa</option>
-<option>Study Permit</option>
-<option>Work Permit</option>
-<option>Permanent Residency</option>
-<option>Other</option>
-</select>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-bold mb-2">Date</label>
-<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary" type="date"/>
-</div>
-<div class="col-span-1">
-<label class="block text-sm font-bold mb-2">Time</label>
-<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary" type="time"/>
-</div>
-<div class="col-span-2">
-<label class="block text-sm font-bold mb-2">Your Message</label>
-<textarea class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary" placeholder="How can we help you?" rows="4"></textarea>
-</div>
-<div class="col-span-2">
-<button class="w-full bg-primary text-white py-5 rounded-lg font-bold text-lg hover:bg-primary/90 shadow-lg transition-all" type="submit">
-                            Schedule Consultation
-                        </button>
-</div>
-</form>
-</div>
-</div>
-</section>
-<section class="py-32 bg-white dark:bg-background-dark" id="contact">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-<div>
-<h2 class="text-3xl font-bold mb-8">Contact Us</h2>
-<div class="space-y-6 mb-12">
-<div class="flex items-start gap-4">
-<div class="bg-primary-light/40 p-3 rounded-lg">
-<span class="material-symbols-outlined text-primary">call</span>
-</div>
-<div>
-<p class="font-bold">Phone</p>
-<p class="text-slate-600 dark:text-slate-400">289-885-4848</p>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="bg-primary-light/40 p-3 rounded-lg">
-<span class="material-symbols-outlined text-primary">location_on</span>
-</div>
-<div>
-<p class="font-bold">Our Office</p>
-<p class="text-slate-600 dark:text-slate-400">25415 Terrault Rd, Sturgeon County, AB T8T 0C6, Canada</p>
-</div>
-</div>
-</div>
-<div class="rounded-2xl overflow-hidden shadow-inner bg-slate-200 h-64 relative border border-slate-300 dark:border-slate-700">
-<div class="absolute inset-0 bg-cover bg-center" data-alt="Map view of Sturgeon County Alberta" data-location="Sturgeon County" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVGrtifqLWm3hZoK4tC00ChprftH8oa94FqOXkxoqj-us4mqZK94yYXY3R_sSUarNVVLGzkVyllsB4oLIlAPV5qAoCwzuARrQNaktKbhkpVNd4SBdvyFCZadO-amU5XZ6DbY-JANSNp0tXiqDrlpc-71ig_G6hxNzMwjCH6uD8O-sR12aiWZBe5bR1wyyRkvuukaCd9QWwLAN7RUCfxw0O1KXVChFtIHGMexf0jGqRMJL865BvPoCgRDJzw1xrLatwAs4FnokTK34');"></div>
-<div class="absolute inset-0 flex items-center justify-center">
-<div class="bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
-<span class="material-symbols-outlined text-primary">location_on</span>
-<span class="text-xs font-bold">Sunbloom Immigration</span>
-</div>
-</div>
-</div>
-</div>
-<div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-<form class="space-y-6">
-<div>
-<label class="block text-sm font-bold mb-2">Name</label>
-<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-900 focus:ring-primary focus:border-primary" placeholder="Your Name" type="text"/>
-</div>
-<div>
-<label class="block text-sm font-bold mb-2">Email</label>
-<input class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-900 focus:ring-primary focus:border-primary" placeholder="Email Address" type="email"/>
-</div>
-<div>
-<label class="block text-sm font-bold mb-2">Message</label>
-<textarea class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-900 focus:ring-primary focus:border-primary" placeholder="Message details..." rows="5"></textarea>
-</div>
-<button class="w-full bg-primary text-white py-5 rounded-lg font-bold hover:bg-primary/90 transition-all" type="submit">
-                            Send Message
-                        </button>
-</form>
-</div>
-</div>
-</div>
-</section>
-<footer class="bg-background-dark text-slate-300 py-24">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-<div class="col-span-1 md:col-span-1">
-<div class="flex items-center gap-2 mb-6">
-<div class="text-primary size-6">
-<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path clip-rule="evenodd" d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z" fill-rule="evenodd"></path>
-</svg>
-</div>
-<span class="text-lg font-bold text-white">Sunbloom Immigration</span>
-</div>
-<p class="text-sm leading-relaxed mb-4">
-                        Professional Canadian immigration consulting. Helping you navigate the path to success in Canada.
-                    </p>
-<p class="text-xs text-slate-500">
-                        RCIC Rajveer Kaur Gill<br/>License: R1054053
-                    </p>
-</div>
-<div>
-<h4 class="text-white font-bold mb-6">Quick Links</h4>
-<ul class="space-y-4 text-sm">
-<li><a class="hover:text-primary transition-colors" href="#home">Home</a></li>
-<li><a class="hover:text-primary transition-colors" href="#about">About Us</a></li>
-<li><a class="hover:text-primary transition-colors" href="#appointment">Appointment</a></li>
-<li><a class="hover:text-primary transition-colors" href="#contact">Contact</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-white font-bold mb-6">Key Services</h4>
-<ul class="space-y-4 text-sm">
-<li><a class="hover:text-primary transition-colors" href="#">Permanent Residency</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Express Entry</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Study Permits</a></li>
-<li><a class="hover:text-primary transition-colors" href="#">Work Permits</a></li>
-</ul>
-</div>
-<div>
-<h4 class="text-white font-bold mb-6">Contact Info</h4>
-<ul class="space-y-4 text-sm">
-<li class="flex items-center gap-2">
-<span class="material-symbols-outlined text-sm text-primary">call</span>
-                            289-885-4848
-                        </li>
-<li class="flex items-start gap-2">
-<span class="material-symbols-outlined text-sm text-primary">location_on</span>
-                            25415 Terrault Rd, Sturgeon County, AB T8T 0C6
-                        </li>
-</ul>
-</div>
-</div>
-<div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-<p>© 2024 Sunbloom Immigration Ltd. All rights reserved.</p>
-<p>Incorporated under Canada Business Corporations Act | Authorized CICC Member</p>
-</div>
-</div>
-</footer>
-</body></html>
+  </head>
+  <body
+    class="bg-white dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300"
+  >
+    <nav
+      class="sticky top-0 z-50 w-full glass-effect border-b border-primary-light"
+    >
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center gap-2">
+            <div class="text-primary size-8">
+              <svg
+                fill="currentColor"
+                viewbox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <span
+              class="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100"
+              >Sunbloom Immigration Ltd.</span
+            >
+          </div>
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#home"
+              >Home</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#services"
+              >Services</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#about"
+              >About</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#appointment"
+              >Appointment</a
+            >
+            <a
+              class="text-sm font-medium hover:text-primary transition-colors"
+              href="#contact"
+              >Contact</a
+            >
+            <button
+              class="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold shadow-sm hover:bg-primary/90 transition-all"
+            >
+              Book Appointment
+            </button>
+          </div>
+          <div class="md:hidden flex items-center">
+            <span class="material-symbols-outlined cursor-pointer">menu</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section
+      class="relative overflow-hidden pt-24 pb-32 lg:pt-40 lg:pb-52 bg-gradient-to-br from-primary-light/30 via-white to-white dark:from-background-dark dark:via-background-dark dark:to-background-dark"
+      id="home"
+    >
+      <div
+        class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-12"
+      >
+        <div class="flex-1 text-center lg:text-left">
+          <h1
+            class="text-5xl lg:text-7xl font-black leading-tight tracking-tight text-slate-900 dark:text-slate-100"
+          >
+            Trusted Canadian <br /><span class="text-primary"
+              >Immigration Services</span
+            >
+          </h1>
+          <p
+            class="mt-6 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0"
+          >
+            Helping clients bloom in Canada with expert guidance and
+            personalized immigration solutions. Your journey to a new life
+            starts with professional care.
+          </p>
+          <div
+            class="mt-10 flex flex-wrap justify-center lg:justify-start gap-4"
+          >
+            <a
+              class="bg-primary text-white px-10 py-5 rounded-lg font-bold shadow-lg hover:shadow-xl hover:translate-y-[-2px] transition-all"
+              href="#appointment"
+            >
+              Book Consultation
+            </a>
+            <a
+              class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-8 py-4 rounded-lg font-bold shadow-sm hover:bg-slate-50 dark:hover:bg-slate-700 transition-all"
+              href="#services"
+            >
+              View Services
+            </a>
+          </div>
+        </div>
+        <div class="flex-1 w-full relative">
+          <div
+            class="aspect-square bg-gradient-to-tr from-primary/30 to-primary/5 rounded-full absolute -top-10 -right-10 blur-3xl opacity-50"
+          ></div>
+          <div
+            class="relative z-10 w-full max-w-lg mx-auto aspect-video rounded-xl bg-slate-200 shadow-2xl overflow-hidden border-4 border-white dark:border-slate-800"
+            data-alt="Abstract beautiful Canadian landscape at sunrise"
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuALyRNfDzvUwdvURElQRJfV_UQphPv-DirhtXr1D16RSWvSY3b03kt33SDku1-mmYmqGVgba6aT7_A3GsAwYbT2P_cjAYVW3nb2NJHEl3IAVkDQdvZLxMsG1Iqd_iRcVtJ87gOHJ2QNPUTEZuwRkIfXjI1jOD-EmoAnTC_G97EJvz79QgMDfaiCzN-0XtvszNrTVYUSS8KXO8anHfnhscDU0ELJBCxbAkf7HDBWwcLhw-aJwWvx4V6n7rrdtfhOGEFrWT-qL3rI6vw&quot;);
+              background-size: cover;
+              background-position: center;
+            "
+          ></div>
+          <div
+            class="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-lg flex items-center gap-3"
+          >
+            <div class="bg-primary/20 p-2 rounded-full">
+              <span class="material-symbols-outlined text-primary"
+                >verified</span
+              >
+            </div>
+            <div>
+              <p class="text-xs font-bold text-slate-400">
+                Licensed Consultant
+              </p>
+              <p class="text-sm font-black">CICC Authorized</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="py-32 bg-background-alt/50 dark:bg-background-dark/50"
+      id="services"
+    >
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">
+            Our Professional Services
+          </h2>
+          <div class="w-16 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+          <p class="mt-4 text-slate-600 dark:text-slate-400">
+            Comprehensive support for all your Canadian immigration needs
+          </p>
+        </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        >
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >flight_takeoff</span
+            >
+            <h3 class="text-lg font-bold mb-2">Visitor Visa</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Explore Canada for tourism, family visits, or short business
+              trips.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >family_restroom</span
+            >
+            <h3 class="text-lg font-bold mb-2">Super Visa</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Long-term stay options for parents and grandparents of
+              citizens/PRs.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >school</span
+            >
+            <h3 class="text-lg font-bold mb-2">Study Permit</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Obtain authorization to study at designated learning institutions
+              (DLI).
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >work</span
+            >
+            <h3 class="text-lg font-bold mb-2">Work Permit</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Closed or open work permits for foreign workers in Canada.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >home_pin</span
+            >
+            <h3 class="text-lg font-bold mb-2">Permanent Residency</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Transition to living permanently in Canada through various
+              pathways.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >workspace_premium</span
+            >
+            <h3 class="text-lg font-bold mb-2">Citizenship</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              The final step in your journey to become a Canadian citizen.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >card_travel</span
+            >
+            <h3 class="text-lg font-bold mb-2">PRTD</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Travel documents for permanent residents without valid PR cards.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >bolt</span
+            >
+            <h3 class="text-lg font-bold mb-2">Express Entry</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Fast-tracked economic immigration for skilled workers.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >map</span
+            >
+            <h3 class="text-lg font-bold mb-2">PNP</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Provincial Nominee Programs tailored to local economic needs.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >business_center</span
+            >
+            <h3 class="text-lg font-bold mb-2">Business Visa</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Invest, start a business, or expand your operations in Canada.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >favorite</span
+            >
+            <h3 class="text-lg font-bold mb-2">Spousal Sponsorship</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Unite with your loved ones through family class sponsorship.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >history_edu</span
+            >
+            <h3 class="text-lg font-bold mb-2">PGWP</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Post-Graduation Work Permit for international students.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >diversity_1</span
+            >
+            <h3 class="text-lg font-bold mb-2">SOWP</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Spousal Open Work Permit for partners of students/workers.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >description</span
+            >
+            <h3 class="text-lg font-bold mb-2">LMIA Process</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Assistance for employers applying for Labour Market Impact
+              Assessment.
+            </p>
+          </div>
+          <div
+            class="group p-8 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-xl transition-all"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl mb-4 group-hover:scale-110 transition-transform"
+              >gavel</span
+            >
+            <h3 class="text-lg font-bold mb-2">Refugee Services</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-400">
+              Professional support for asylum and refugee applications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-32 bg-white dark:bg-background-dark" id="about">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row gap-16 items-center">
+          <div class="flex-1">
+            <h2 class="text-3xl font-bold mb-6">About Sunbloom Immigration</h2>
+            <p class="text-lg mb-6 text-slate-600 dark:text-slate-400">
+              Sunbloom Immigration Ltd. is a dedicated consultancy firm
+              incorporated under the
+              <strong>Canada Business Corporations Act</strong>. We provide
+              expert legal guidance to individuals and families seeking to
+              navigate the complex Canadian immigration landscape.
+            </p>
+            <div
+              class="bg-background-alt dark:bg-slate-800 p-10 rounded-2xl shadow-sm border border-primary-light"
+            >
+              <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary"
+                  >account_circle</span
+                >
+                Meet Our Lead Consultant
+              </h3>
+              <p
+                class="text-slate-900 dark:text-slate-100 font-bold text-lg mb-1"
+              >
+                Rajveer Kaur Gill
+              </p>
+              <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+                RCIC Consultant | College ID: R1054053
+              </p>
+              <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                Authorized by the College of Immigration and Citizenship
+                Consultants (CICC) to provide professional immigration advice
+                and representation.
+              </p>
+              <a
+                class="inline-flex items-center gap-2 text-white font-bold bg-primary px-8 py-3 rounded-lg hover:bg-primary/90 transition-all"
+                href="#"
+              >
+                Verify License
+                <span class="material-symbols-outlined text-sm"
+                  >open_in_new</span
+                >
+              </a>
+            </div>
+          </div>
+          <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+            <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
+              <span class="material-symbols-outlined text-primary mb-4"
+                >location_on</span
+              >
+              <h4 class="font-bold mb-2">Address</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                25415 Terrault Rd<br />Sturgeon County, AB T8T 0C6<br />Canada
+              </p>
+            </div>
+            <div class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
+              <span class="material-symbols-outlined text-primary mb-4"
+                >call</span
+              >
+              <h4 class="font-bold mb-2">Phone</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                289-885-4848
+              </p>
+            </div>
+            <div
+              class="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm col-span-1 md:col-span-2"
+            >
+              <span class="material-symbols-outlined text-primary mb-4"
+                >verified_user</span
+              >
+              <h4 class="font-bold mb-2">Legal Status</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                Incorporated under Canada Business Corporations Act. Fully
+                compliant with CICC regulations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="py-32 bg-background-alt/30 dark:bg-slate-900"
+      id="appointment"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold">Book an Appointment</h2>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">
+            Schedule your professional consultation today
+          </p>
+        </div>
+        <div
+          class="bg-background-light dark:bg-slate-800 p-8 rounded-2xl shadow-xl"
+        >
+          <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="col-span-1">
+              <label class="block text-sm font-bold mb-2">Full Name</label>
+              <input
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary"
+                placeholder="Enter your name"
+                type="text"
+              />
+            </div>
+            <div class="col-span-1">
+              <label class="block text-sm font-bold mb-2">Email Address</label>
+              <input
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary"
+                placeholder="email@example.com"
+                type="email"
+              />
+            </div>
+            <div class="col-span-1">
+              <label class="block text-sm font-bold mb-2">Phone Number</label>
+              <input
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary"
+                placeholder="289-885-4848"
+                type="tel"
+              />
+            </div>
+            <div class="col-span-1">
+              <label class="block text-sm font-bold mb-2">Select Service</label>
+              <select
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary"
+              >
+                <option>Visitor Visa</option>
+                <option>Study Permit</option>
+                <option>Work Permit</option>
+                <option>Permanent Residency</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="col-span-1">
+              <label class="block text-sm font-bold mb-2">Date</label>
+              <input
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary"
+                type="date"
+              />
+            </div>
+            <div class="col-span-1">
+              <label class="block text-sm font-bold mb-2">Time</label>
+              <input
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary"
+                type="time"
+              />
+            </div>
+            <div class="col-span-2">
+              <label class="block text-sm font-bold mb-2">Your Message</label>
+              <textarea
+                class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-primary focus:border-primary"
+                placeholder="How can we help you?"
+                rows="4"
+              ></textarea>
+            </div>
+            <div class="col-span-2">
+              <button
+                class="w-full bg-primary text-white py-5 rounded-lg font-bold text-lg hover:bg-primary/90 shadow-lg transition-all"
+                type="submit"
+              >
+                Schedule Consultation
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <section class="py-32 bg-white dark:bg-background-dark" id="contact">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div>
+            <h2 class="text-3xl font-bold mb-8">Contact Us</h2>
+            <div class="space-y-6 mb-12">
+              <div class="flex items-start gap-4">
+                <div class="bg-primary-light/40 p-3 rounded-lg">
+                  <span class="material-symbols-outlined text-primary"
+                    >call</span
+                  >
+                </div>
+                <div>
+                  <p class="font-bold">Phone</p>
+                  <p class="text-slate-600 dark:text-slate-400">289-885-4848</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="bg-primary-light/40 p-3 rounded-lg">
+                  <span class="material-symbols-outlined text-primary"
+                    >location_on</span
+                  >
+                </div>
+                <div>
+                  <p class="font-bold">Our Office</p>
+                  <p class="text-slate-600 dark:text-slate-400">
+                    25415 Terrault Rd, Sturgeon County, AB T8T 0C6, Canada
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="rounded-2xl overflow-hidden shadow-inner bg-slate-200 h-64 relative border border-slate-300 dark:border-slate-700"
+            >
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                data-alt="Map view of Sturgeon County Alberta"
+                data-location="Sturgeon County"
+                style="
+                  background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCVGrtifqLWm3hZoK4tC00ChprftH8oa94FqOXkxoqj-us4mqZK94yYXY3R_sSUarNVVLGzkVyllsB4oLIlAPV5qAoCwzuARrQNaktKbhkpVNd4SBdvyFCZadO-amU5XZ6DbY-JANSNp0tXiqDrlpc-71ig_G6hxNzMwjCH6uD8O-sR12aiWZBe5bR1wyyRkvuukaCd9QWwLAN7RUCfxw0O1KXVChFtIHGMexf0jGqRMJL865BvPoCgRDJzw1xrLatwAs4FnokTK34&quot;);
+                "
+              ></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div
+                  class="bg-white dark:bg-slate-800 px-4 py-2 rounded-full shadow-lg flex items-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-primary"
+                    >location_on</span
+                  >
+                  <span class="text-xs font-bold">Sunbloom Immigration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700"
+          >
+            <form class="space-y-6">
+              <div>
+                <label class="block text-sm font-bold mb-2">Name</label>
+                <input
+                  class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-900 focus:ring-primary focus:border-primary"
+                  placeholder="Your Name"
+                  type="text"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold mb-2">Email</label>
+                <input
+                  class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-900 focus:ring-primary focus:border-primary"
+                  placeholder="Email Address"
+                  type="email"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-bold mb-2">Message</label>
+                <textarea
+                  class="w-full rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-900 focus:ring-primary focus:border-primary"
+                  placeholder="Message details..."
+                  rows="5"
+                ></textarea>
+              </div>
+              <button
+                class="w-full bg-primary text-white py-5 rounded-lg font-bold hover:bg-primary/90 transition-all"
+                type="submit"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-background-dark text-slate-300 py-24">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="col-span-1 md:col-span-1">
+            <div class="flex items-center gap-2 mb-6">
+              <div class="text-primary size-6">
+                <svg
+                  fill="currentColor"
+                  viewbox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M12.0799 24L4 19.2479L9.95537 8.75216L18.04 13.4961L18.0446 4H29.9554L29.96 13.4961L38.0446 8.75216L44 19.2479L35.92 24L44 28.7521L38.0446 39.2479L29.96 34.5039L29.9554 44H18.0446L18.04 34.5039L9.95537 39.2479L4 28.7521L12.0799 24Z"
+                    fill-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+              <span class="text-lg font-bold text-white"
+                >Sunbloom Immigration</span
+              >
+            </div>
+            <p class="text-sm leading-relaxed mb-4">
+              Professional Canadian immigration consulting. Helping you navigate
+              the path to success in Canada.
+            </p>
+            <p class="text-xs text-slate-500">
+              RCIC Rajveer Kaur Gill<br />License: R1054053
+            </p>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-6">Quick Links</h4>
+            <ul class="space-y-4 text-sm">
+              <li>
+                <a class="hover:text-primary transition-colors" href="#home"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#about"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-primary transition-colors"
+                  href="#appointment"
+                  >Appointment</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#contact"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-6">Key Services</h4>
+            <ul class="space-y-4 text-sm">
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Permanent Residency</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Express Entry</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Study Permits</a
+                >
+              </li>
+              <li>
+                <a class="hover:text-primary transition-colors" href="#"
+                  >Work Permits</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-6">Contact Info</h4>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-sm text-primary"
+                  >call</span
+                >
+                289-885-4848
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-sm text-primary"
+                  >location_on</span
+                >
+                25415 Terrault Rd, Sturgeon County, AB T8T 0C6
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500"
+        >
+          <p>© 2024 Sunbloom Immigration Ltd. All rights reserved.</p>
+          <p>
+            Incorporated under Canada Business Corporations Act | Authorized
+            CICC Member
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
