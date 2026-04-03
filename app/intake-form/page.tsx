@@ -14,6 +14,7 @@ import {
   ChevronDown,
   Info,
 } from "lucide-react";
+import { sendEmail } from "@/lib/nodemailer";
 
 /* ─────────────────────────────────────────────
    Types
@@ -356,9 +357,96 @@ export default function IntakeForm() {
       ),
     );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    await sendEmail({
+      subject: "[IMMIGRATION_INTAKE] New Client Submission",
+
+      html: `
+<p><b>New Immigration Intake Submission</b></p>
+<p>This is an automated notification generated after a user submitted the immigration intake form.</p>
+
+<h3>Personal Information</h3>
+<ul>
+  <li><b>Full Legal Name:</b> ${form.fullLegalName}</li>
+  <li><b>Date of Birth:</b> ${form.dateOfBirth}</li>
+  <li><b>Country of Citizenship:</b> ${form.countryOfCitizenship}</li>
+  <li><b>Country of Residence:</b> ${form.countryOfResidence}</li>
+  <li><b>Marital Status:</b> ${form.maritalStatus}</li>
+  <li><b>Dependent Children:</b> ${form.dependentChildren}</li>
+</ul>
+
+<h3>Contact Details</h3>
+<ul>
+  <li>
+    <b>Email:</b> ${form.email}
+    (<a href="mailto:${encodeURIComponent(form.email)}">Send Email</a>)
+  </li>
+  <li>
+    <b>Phone:</b> ${form.phoneCountryCode} ${form.phoneNumber}
+    (<a href="tel:${form.phoneCountryCode}${form.phoneNumber}">Call</a>)
+  </li>
+</ul>
+
+<h3>Immigration Status</h3>
+<p>${form.currentImmigrationStatus}</p>
+
+<h3>Services Requested</h3>
+<p>${form.servicesRequested.join(", ") || "N/A"}</p>
+
+<h3>Education</h3>
+<ul>
+  <li><b>Highest Education:</b> ${form.highestEducation}</li>
+  <li><b>Country of Education:</b> ${form.countryOfEducation}</li>
+  <li><b>ECA Obtained:</b> ${form.ecaObtained}</li>
+  <li><b>ECA Authority:</b> ${form.ecaAuthority}</li>
+</ul>
+
+<h3>Language Tests</h3>
+<p>${form.languageTests.join(", ") || "N/A"}</p>
+
+<h3>Work Experience</h3>
+<ul>
+  <li><b>Current Occupation:</b> ${form.currentOccupation}</li>
+  <li><b>NOC Code:</b> ${form.nocCode}</li>
+  <li><b>Years Skilled:</b> ${form.yearsSkilled}</li>
+  <li><b>Countries of Experience:</b> ${form.countriesOfExperience}</li>
+  <li><b>Canadian Work Experience:</b> ${form.canadianWorkExp}</li>
+</ul>
+
+<h3>Job Offer</h3>
+<ul>
+  <li><b>Valid Job Offer:</b> ${form.validJobOffer}</li>
+  <li><b>LMIA Supported:</b> ${form.lmiaSupported}</li>
+</ul>
+
+<h3>Immigration History</h3>
+<ul>
+  <li><b>Prior Applications:</b> ${form.priorApplications}</li>
+  <li><b>Prior Refusals:</b> ${form.priorRefusals}</li>
+  <li><b>Removal Order:</b> ${form.removalOrder}</li>
+  <li><b>Lost PR Status:</b> ${form.lostPrStatus}</li>
+  <li><b>Inadmissibility:</b> ${form.inadmissibility}</li>
+  <li><b>Refugee Claim:</b> ${form.refugeeClaim}</li>
+</ul>
+
+<p><b>Details:</b><br/>${form.immigrationHistoryDetails || "N/A"}</p>
+
+<h3>Additional Information</h3>
+<p>${form.additionalInfo || "N/A"}</p>
+
+<h3>Declaration</h3>
+<ul>
+  <li><b>Name:</b> ${form.declarationName}</li>
+  <li><b>Date:</b> ${form.declarationDate}</li>
+  <li><b>Consent:</b> ${form.consentChecked ? "Yes" : "No"}</li>
+</ul>
+
+<hr/>
+<p>This is a system-generated email.</p>
+`,
+    });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

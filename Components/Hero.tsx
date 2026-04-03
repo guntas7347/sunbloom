@@ -100,8 +100,8 @@ function FireflyCanvas() {
 /* ─── Data ─────────────────────────────────────────────────────────────────── */
 const trustBadges = [
   { icon: ShieldCheck, text: "CICC Licensed" },
-  { icon: Award, text: "ICCRC Regulated" },
-  { icon: Star, text: "5-Star on Google" },
+  // { icon: Award, text: "ICCRC Regulated" },
+  // { icon: Star, text: "5-Star on Google" },
 ];
 
 const cards = [
@@ -261,7 +261,7 @@ export default function Hero() {
                   shadow-lg shadow-[#c41f3e]/25 dark:shadow-[#c41f3e]/30
                   hover:shadow-[#c41f3e]/40 hover:-translate-y-0.5 transition-all duration-200"
               >
-                <span className="relative z-10">Book Free Consultation</span>
+                <span className="relative z-10">Book Consultation</span>
                 <span className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
               </a>
               <a
@@ -306,7 +306,7 @@ export default function Hero() {
             />
 
             {/* Floating badge — success rate */}
-            <div
+            {/* <div
               className="absolute top-5 -left-4 z-20
               bg-white/90 border border-slate-200 shadow-lg
               dark:bg-white/10 dark:border-white/20 dark:shadow-xl
@@ -321,10 +321,10 @@ export default function Hero() {
               >
                 Success Rate
               </div>
-            </div>
+            </div> */}
 
             {/* Floating badge — visas */}
-            <div
+            {/* <div
               className="absolute bottom-10 -right-2 z-20
               bg-white/90 border border-slate-200 shadow-lg
               dark:bg-white/10 dark:border-white/20 dark:shadow-xl
@@ -339,7 +339,7 @@ export default function Hero() {
               >
                 Visas Approved
               </div>
-            </div>
+            </div> */}
 
             {/* Image frame */}
             <div
@@ -385,7 +385,7 @@ export default function Hero() {
         </div>
 
         {/* ── Stats strip ─────────────────────────────────────────────────────── */}
-        <div
+        {/* <div
           className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-px rounded-2xl overflow-hidden
           bg-slate-200 dark:bg-white/10"
         >
@@ -410,7 +410,7 @@ export default function Hero() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* ── Mission / Vision cards ─────────────────────────────────────────── */}
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 pb-16">

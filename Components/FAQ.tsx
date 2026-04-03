@@ -5,57 +5,101 @@ import { ChevronDown, HelpCircle } from "lucide-react";
 
 const FAQS = [
   {
+    q: "What services does Sunbloom Immigration provide?",
+    a: "Sunbloom Immigration offers comprehensive Canadian immigration support, including temporary visas, permanent residency pathways, citizenship applications, and assistance with refusals, appeals, and protection cases.",
+    category: "Services",
+  },
+  {
+    q: "Who manages my immigration file?",
+    a: "Your case is handled by a licensed Regulated Canadian Immigration Consultant (RCIC) who oversees your application, provides advice, and communicates with immigration authorities on your behalf.",
+    category: "General",
+  },
+  {
+    q: "How can I begin my application with Sunbloom Immigration?",
+    a: "Start by booking a consultation where your profile, eligibility, and suitable immigration options are evaluated before proceeding with the application.",
+    category: "Process",
+  },
+  {
+    q: "Can Sunbloom Immigration assist after a refusal?",
+    a: "Yes. Refusal reasons are analyzed in detail, and guidance is provided on reapplying, requesting reconsideration, or exploring alternative pathways.",
+    category: "Support",
+  },
+  {
+    q: "Is my personal data kept secure?",
+    a: "All client information is handled with strict confidentiality in line with professional and privacy regulations.",
+    category: "Privacy",
+  },
+  {
+    q: "How do I choose the right immigration program?",
+    a: "Program selection depends on factors such as education, work experience, language scores, and long-term goals. A detailed assessment identifies the most suitable pathway.",
+    category: "General",
+  },
+  {
+    q: "How long does the immigration process usually take?",
+    a: "Timelines differ based on application type and government processing. Each case varies, and estimates are provided after reviewing your situation.",
+    category: "General",
+  },
+  {
+    q: "What documents are typically needed for immigration applications?",
+    a: "Standard requirements include passports, academic records, employment proof, language test results, financial evidence, and identity documents, depending on the program.",
+    category: "Documents",
+  },
+  {
+    q: "Can I extend my stay in Canada?",
+    a: "Many temporary residents—such as visitors, students, or workers—can apply to extend their status before expiry if they meet eligibility conditions.",
+    category: "General",
+  },
+  {
     q: "How long does a Canadian visa application typically take?",
-    a: "Processing times vary by visa type. Visitor visas can take 2–4 weeks, study and work permits 4–12 weeks, and Express Entry profiles as little as 6 months for permanent residency. We provide realistic timelines during your consultation based on your specific case.",
+    a: "Processing varies by visa type. Visitor visas may take a few weeks, study and work permits several weeks to a few months, and permanent residency through Express Entry can take around six months in many cases.",
     category: "General",
   },
   {
-    q: "Do I need an immigration consultant, or can I apply on my own?",
-    a: "While self-application is possible, immigration law is complex and errors can lead to delays or refusals. A licensed RCIC (Regulated Canadian Immigration Consultant) helps you navigate the process correctly, optimize your profile, and handle correspondence with IRCC on your behalf.",
+    q: "Do I need an immigration consultant or can I apply myself?",
+    a: "You can apply independently, but immigration rules are complex. A licensed consultant reduces the risk of errors, strengthens your application, and manages communication with immigration authorities.",
     category: "General",
   },
   {
-    q: "What is Express Entry and am I eligible?",
-    a: "Express Entry is Canada's main pathway for skilled worker permanent residency. It manages three federal programs: Federal Skilled Worker, Canadian Experience Class, and Federal Skilled Trades. Eligibility depends on your work experience, language scores (IELTS/CELPIP/TEF), and education. We assess your CRS score and build a strategy to maximize your chances.",
+    q: "What is Express Entry and who qualifies?",
+    a: "Express Entry is Canada’s main system for skilled worker immigration, covering programs like Federal Skilled Worker, Canadian Experience Class, and Skilled Trades. Eligibility depends on work experience, education, and language scores.",
     category: "Express Entry",
   },
   {
-    q: "What is a CRS score and how can I improve mine?",
-    a: "The Comprehensive Ranking System (CRS) score determines your place in the Express Entry pool. Factors include age, education, language proficiency, Canadian work experience, and job offers. Key ways to improve your score include retaking language tests, gaining Canadian experience, obtaining a provincial nomination (+600 pts), or securing a valid job offer.",
+    q: "What is a CRS score and how can it be improved?",
+    a: "The CRS score ranks candidates in the Express Entry pool based on factors like age, education, language ability, and experience. Improvements can come from better language scores, provincial nominations, or valid job offers.",
     category: "Express Entry",
   },
   {
-    q: "Can my spouse work in Canada while I study or work there?",
-    a: "Yes — through the Spousal Open Work Permit (SOWP). If you are a full-time student at a designated learning institution or hold a work permit in a skilled occupation, your spouse or common-law partner may be eligible for an open work permit allowing them to work for any employer in Canada.",
+    q: "Can my spouse work in Canada while I study or work?",
+    a: "In many cases, spouses are eligible for an open work permit, allowing them to work for any employer while you hold a valid study or work permit.",
     category: "Family",
   },
   {
-    q: "What documents are required for Spousal Sponsorship?",
-    a: "You'll need proof of relationship (marriage certificate, photos, communication records), sponsor's proof of Canadian status and financial ability, the sponsored spouse's identity documents and passport, police clearance certificates, and medical exam results. We provide a personalized document checklist after reviewing your situation.",
+    q: "What documents are required for spousal sponsorship?",
+    a: "Required documents typically include proof of relationship, sponsor’s status in Canada, financial evidence, identity documents, police certificates, and medical results.",
     category: "Family",
   },
   {
-    q: "What is an LMIA and when is it required?",
-    a: "A Labour Market Impact Assessment (LMIA) is a document an employer obtains from Employment and Social Development Canada (ESDC) proving no qualified Canadian worker was available for the position. It is required for most closed work permits. Some categories, like intra-company transfers and CUSMA/USMCA workers, are LMIA-exempt.",
+    q: "What is an LMIA and when is it needed?",
+    a: "An LMIA confirms that no Canadian worker is available for a job position and is required for many employer-specific work permits, though some categories are exempt.",
     category: "Work",
   },
   {
-    q: "How does the Super Visa work for parents and grandparents?",
-    a: "The Super Visa allows parents and grandparents of Canadian citizens or permanent residents to stay in Canada for up to 5 years per visit, with the visa valid for up to 10 years. Requirements include private Canadian medical insurance of at least $100,000, a signed letter of invitation from your child/grandchild, and proof that their household income meets the minimum threshold.",
+    q: "How does the Super Visa for parents and grandparents work?",
+    a: "The Super Visa allows extended stays for parents and grandparents of Canadian residents, often up to several years per visit, provided requirements like insurance and income thresholds are met.",
     category: "Family",
   },
   {
-    q: "Can a refugee claim be made inside Canada?",
-    a: "Yes. You can make an inland refugee claim at a port of entry or within Canada if you fear persecution based on race, religion, nationality, political opinion, or membership in a particular social group. Claims are heard by the Refugee Protection Division (RPD) of the Immigration and Refugee Board. We assist with the basis of claim form, hearing preparation, and appeals.",
+    q: "Can I apply for refugee protection inside Canada?",
+    a: "Yes. Individuals fearing persecution can file a claim within Canada or at a port of entry, and their case will be reviewed by the appropriate tribunal.",
     category: "Protection",
   },
   {
-    q: "What are the fees for your immigration services?",
-    a: "Our fees vary depending on the complexity of the application and the type of service required. We provide a transparent, fixed-fee quote after the initial consultation so there are no hidden surprises. Government application fees are separate and payable directly to IRCC. Contact us to schedule a free initial consultation.",
+    q: "What are the service fees for Sunbloom Immigration?",
+    a: "Fees depend on the application type and complexity. A clear quote is provided after consultation, with government fees paid separately.",
     category: "General",
   },
 ];
-
 const CATEGORIES = ["All", ...Array.from(new Set(FAQS.map((f) => f.category)))];
 
 function ExpandPanel({

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { sendEmail } from "@/lib/nodemailer";
+
 import {
   Phone,
   User,
@@ -94,8 +96,41 @@ export default function Appointment() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 1400)); // simulate network
-    console.log("📋 Callback Request:", form);
+    await sendEmail({
+      subject: "[APPOINTMENT_REQUEST] New Callback Request",
+
+      html: `
+<p>This is an <b>automated notification</b> indicating that a user has submitted a <b>callback / appointment request</b> through the website.</p>
+
+<h3>User Details</h3>
+<ul>
+  <li><b>Name:</b> ${form.name}</li>
+  <li>
+    <b>Email:</b> ${form.email}
+    (<a href="mailto:${encodeURIComponent(form.email)}?subject=${encodeURIComponent("Regarding your appointment request")}&body=${encodeURIComponent("Hello " + form.name + ",\n\nWe received your request and will get back to you shortly.")}">
+      Send Email
+    </a>)
+  </li>
+  <li>
+    <b>Phone:</b> ${form.phone}
+    (<a href="tel:${form.phone}">Call Now</a>)
+  </li>
+</ul>
+
+<h3>Request Details</h3>
+<ul>
+  <li><b>Service Requested:</b> ${form.service}</li>
+  <li><b>Preferred Date:</b> ${form.date}</li>
+  <li><b>Preferred Time:</b> ${form.time}</li>
+</ul>
+
+<h3>Additional Message</h3>
+<p>${form.message}</p>
+
+<hr/>
+<p>Please contact the user promptly to proceed with the request.</p>
+`,
+    });
     setSubmitting(false);
     setSubmitted(true);
   };

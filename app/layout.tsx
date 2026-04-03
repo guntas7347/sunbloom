@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Sunbloom Immigration Ltd.",
   description: "Your trusted partner for immigration services.",
   icons: {
-    icon: "/sunbloom-logo.png",
+    icon: "/sunbloom-full.png",
   },
 };
 

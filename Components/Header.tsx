@@ -16,21 +16,21 @@ const Header = () => {
     { name: "Services", href: "#services" },
     { name: "About", href: "#about" },
     { name: "Appointment", href: "#appointment" },
-    { name: "Contact", href: "#contact" },
+    { name: "Intake Form", href: "/intake-form" },
   ];
 
   return (
     <nav className="sticky top-0 z-50 w-full glass-effect border-b border-primary-light">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-around items-center min-h-16 py-2">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="text-primary size-8">
-              <img src="/sunbloom-logo.png" alt="Sunbloom Immigration Ltd." />
+            <div className="text-primary bg-white size-20">
+              <img src="/sunbloom-full.png" alt="Sunbloom Immigration Ltd." />
             </div>
-            <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
-              Sunbloom Immigration Ltd.
-            </span>
+            {/* <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
+              Sunbloom Immigration
+            </span> */}
           </Link>
 
           {/* Desktop Navigation */}
@@ -55,10 +55,10 @@ const Header = () => {
             </button>
 
             <Link
-              href="/intake-form"
+              href="/#appointment"
               className="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold shadow-sm hover:bg-primary/90 transition-all"
             >
-              Intake Form
+              Book Appointment
             </Link>
           </div>
 
