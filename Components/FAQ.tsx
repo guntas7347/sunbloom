@@ -210,7 +210,7 @@ export default function FAQ() {
             </h2>
             <p className="mt-3 text-slate-500 dark:text-slate-400 max-w-md mx-auto">
               Answers to the most common immigration questions we receive. Don't
-              see yours? Book a free consultation.
+              see yours? Book an appointment.
             </p>
           </div>
 
@@ -253,7 +253,7 @@ export default function FAQ() {
               href="#appointment"
               className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3 rounded-xl font-bold text-sm shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200"
             >
-              Book a Free Consultation
+              Book an Appointment
             </a>
           </div>
         </div>

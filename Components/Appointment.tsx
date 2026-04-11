@@ -161,7 +161,7 @@ export default function Appointment() {
           >
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold px-4 py-2 rounded-full mb-5">
               <Phone size={12} />
-              Free Consultation • No Commitment
+              Appointment {/* Free Consultation • No Commitment */}
             </div>
             <h2 className="text-4xl font-black text-slate-900 dark:text-slate-100 leading-tight">
               Request a{" "}

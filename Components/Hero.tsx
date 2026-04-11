@@ -117,10 +117,10 @@ const cards = [
   },
 ];
 
-const highlights = [
-  "No hidden fees",
-  "Free initial assessment",
-  "Trusted by 2,500+ families",
+const highlights: any = [
+  // "No hidden fees",
+  // "Free initial assessment",
+  // "Trusted by 2,500+ families",
 ];
 
 const stats = [
@@ -281,7 +281,7 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-4 text-xs
               text-slate-400 dark:text-white/45"
             >
-              {highlights.map((h) => (
+              {highlights.map((h: any) => (
                 <div key={h} className="flex items-center gap-1.5">
                   <CheckCircle
                     size={12}
