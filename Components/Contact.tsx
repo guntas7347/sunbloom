@@ -29,7 +29,7 @@ const CONTACT_ITEMS = [
   {
     icon: Clock,
     label: "Office Hours",
-    value: "Mon – Fri: 9:00 AM – 6:00 PM (MST)",
+    value: "Mon – Fri: 9:00 AM – 4:00 PM (MST)",
     href: null,
     color:
       "bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400",
