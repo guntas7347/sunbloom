@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Phone,
   ClipboardCheck,
@@ -246,7 +246,22 @@ function DetailPanel({
 /* ─── Main export ────────────────────────────────────────────────────────────── */
 export default function Guide() {
   const [active, setActive] = useState(0);
+  useEffect(() => {
+    let i = 0;
 
+    const interval = setInterval(() => {
+      i++;
+
+      if (i <= 3) {
+        setActive(i);
+      } else {
+        setActive(0);
+        clearInterval(interval);
+      }
+    }, 1200); // adjust timing
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
       <style>{`

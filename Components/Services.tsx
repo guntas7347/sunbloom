@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+
 import {
   Plane,
   Users,
@@ -353,6 +355,39 @@ function ServiceCard({ service }: { service: Service }) {
   );
 }
 
+// Define animation variants for the staggered grid
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15, // Delay between each card animating in
+    },
+  },
+};
+
+const itemVariants: any = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15,
+    },
+  },
+};
+
+const headerVariants: any = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 const Services = () => {
   return (
     <section
@@ -360,22 +395,48 @@ const Services = () => {
       className="py-32 bg-background-alt/50 dark:bg-background-dark/50"
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        {/* Animated Header */}
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }} // Triggers when 100px away
+          variants={headerVariants}
+        >
           <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100">
             Our Professional Services
           </h2>
-          <div className="w-16 h-1 bg-primary mx-auto mt-4 rounded-full" />
+
+          {/* Animated underline */}
+          <motion.div
+            className="h-1 bg-primary mx-auto mt-4 rounded-full"
+            initial={{ width: 0 }}
+            whileInView={{ width: 64 }} // 64px = w-16 in Tailwind
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          />
+
           <p className="mt-4 text-slate-600 dark:text-slate-400">
             Click any service to learn more — comprehensive support for all your
             Canadian immigration needs
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Animated Grid with Staggered Cards */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {SERVICES.map((service, i) => (
-            <ServiceCard key={i} service={service} />
+            // Wrapping the card in a motion.div to apply the stagger effect
+            <motion.div key={i} variants={itemVariants}>
+              <ServiceCard service={service} />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
