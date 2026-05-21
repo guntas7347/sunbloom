@@ -15,8 +15,8 @@ const CONTACT_ITEMS = [
   {
     icon: Mail,
     label: "Email",
-    value: "info@sunbloomimmigration.ca",
-    href: "mailto:info@sunbloomimmigration.ca",
+    value: "consult@sunbloomimmigration.com",
+    href: "mailto:consult@sunbloomimmigration.com",
     color: "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400",
   },
   {
