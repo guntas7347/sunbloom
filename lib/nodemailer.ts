@@ -10,28 +10,23 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-/**
- * Interface for the sendEmail function parameters
- */
 interface SendEmailOptions {
   subject: string;
   html?: string;
 }
 
-/**
- * Utility function to send an email using Gmail and Nodemailer
- */
 export async function sendEmail({ subject, html }: SendEmailOptions) {
   try {
     const info = await transporter.sendMail({
-      from: `"Sunbloom" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
+      to: process.env.TARGET_EMAIL,
       subject,
       html,
     });
 
     return { success: true, messageId: info.messageId };
   } catch (error) {
+    console.log("Failed to send email:", error);
+
     return { success: false, error };
   }
 }

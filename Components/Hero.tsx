@@ -285,7 +285,7 @@ export default function Hero() {
                 <div key={h} className="flex items-center gap-1.5">
                   <CheckCircle
                     size={12}
-                    className="text-emerald-500 dark:text-emerald-400 flex-shrink-0"
+                    className="text-emerald-500 dark:text-emerald-400 shrink-0"
                   />
                   <span>{h}</span>
                 </div>
@@ -427,7 +427,7 @@ export default function Hero() {
 
               <div className="flex items-start gap-4">
                 <div
-                  className="flex-shrink-0 w-10 h-10 rounded-xl
+                  className="shrink-0 w-10 h-10 rounded-xl
                   bg-[#c41f3e]/10 border border-[#c41f3e]/25
                   dark:bg-[#c41f3e]/15 dark:border-[#c41f3e]/30
                   flex items-center justify-center"

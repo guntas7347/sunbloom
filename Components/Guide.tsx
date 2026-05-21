@@ -22,7 +22,7 @@ const STEPS = [
     description:
       "We start by getting to know you — your background, goals, and circumstances. In a confidential one-on-one session, our licensed consultant listens carefully to understand exactly where you are and where you want to go.",
     details: [
-      "Free 30-minute initial consultation",
+      "30-minute initial consultation",
       "Review of current immigration status",
       "Understanding your short and long-term goals",
       "Discussing suitable Canadian immigration pathways",
@@ -117,7 +117,7 @@ function StepSidebarItem({
       {/* circle + icon */}
       <button
         onClick={onClick}
-        className={`relative z-10 flex-shrink-0 w-11 h-11 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
+        className={`relative z-10 shrink-0 w-11 h-11 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
           active
             ? "bg-primary border-primary text-white shadow-lg shadow-primary/30"
             : "bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400 hover:border-primary/50 hover:text-primary"
@@ -172,7 +172,7 @@ function DetailPanel({
       <div className="p-8 md:p-10">
         {/* header */}
         <div className="flex items-start gap-5 mb-7">
-          <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 dark:bg-primary/15 border border-primary/20 flex items-center justify-center">
+          <div className="shrink-0 w-14 h-14 rounded-2xl bg-primary/10 dark:bg-primary/15 border border-primary/20 flex items-center justify-center">
             <Icon size={24} className="text-primary" />
           </div>
           <div>
@@ -203,7 +203,7 @@ function DetailPanel({
               <li key={d} className="flex items-start gap-3">
                 <CheckCircle
                   size={15}
-                  className="text-primary flex-shrink-0 mt-0.5"
+                  className="text-primary shrink-0 mt-0.5"
                 />
                 <span className="text-sm text-slate-700 dark:text-slate-300">
                   {d}
@@ -446,14 +446,14 @@ export default function Guide() {
                 Ready to start your Canadian journey?
               </h4>
               <p className="text-slate-500 dark:text-slate-400 text-sm">
-                Book a free consultation — no commitment, just honest guidance.
+                Book a consultation — no commitment, just honest guidance.
               </p>
             </div>
             <a
               href="#appointment"
-              className="flex-shrink-0 inline-flex items-center gap-2 bg-primary text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-200"
+              className="shrink-0 inline-flex items-center gap-2 bg-primary text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-200"
             >
-              Book Free Consultation
+              Book Consultation
               <ArrowRight size={15} />
             </a>
           </div>
