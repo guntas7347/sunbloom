@@ -96,7 +96,7 @@ export default function Appointment() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    await sendEmail({
+    const res = await sendEmail({
       subject: "[APPOINTMENT_REQUEST] New Callback Request",
 
       html: `
@@ -131,8 +131,16 @@ export default function Appointment() {
 <p>Please contact the user promptly to proceed with the request.</p>
 `,
     });
-    setSubmitting(false);
-    setSubmitted(true);
+
+    if (res.success) {
+      setSubmitting(false);
+      setSubmitted(true);
+    } else {
+      setSubmitting(false);
+      alert(
+        "Failed to book appointment. Please try again or contact us at directly at consult@sunbloomimmigration.com",
+      );
+    }
   };
 
   return (

@@ -25,8 +25,6 @@ export async function sendEmail({ subject, html }: SendEmailOptions) {
 
     return { success: true, messageId: info.messageId };
   } catch (error) {
-    console.log("Failed to send email:", error);
-
     return { success: false, error };
   }
 }
