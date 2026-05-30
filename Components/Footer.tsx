@@ -96,7 +96,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="text-sm text-primary" size={16} />
-                25415 Terrault Rd, Sturgeon County, AB T8T 0C6
+                3612 40th Avenue NW Edmonton, AB, Canada
               </li>
             </ul>
           </div>

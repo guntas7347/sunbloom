@@ -84,11 +84,11 @@ const About = () => {
               <MapPin className="text-primary mb-4" />
               <h4 className="font-bold mb-2">Address</h4>
               <p className="text-sm text-slate-600 dark:text-slate-400">
-                25415 Terrault Rd
+                3612 40th Avenue NW
                 <br />
-                Sturgeon County, AB T8T 0C6
+                Edmonton, AB, Canada
                 <br />
-                Canada
+                T6L6M8
               </p>
             </div>
             <div className="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
