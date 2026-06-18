@@ -64,7 +64,7 @@ const Hero = () => {
           <img
             alt="Founder Portrait"
             className="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida/AP1WRLvhhYw_YugoxPt46HeS8NTFOUUzslIRz4KJ7o1MuuN5IRAiQCQu13W0UdmiHMnFIbjC-FIp4uyIY5ENmdmyPr-KzCcVBqNd7e6j3PRI8iWT9PzXTamtJap7LThrF4qhX0kAY_J5uURHXUR-d_VXIkCXIRI7HTxYuDNSmgHEa87EWpxtzWK7dbS8c3XIs6BOkBp-QErdtTIqGcBShtwHd4QgdIBLIcH_VSJRG2CKGheqnL-HP9fKEO4uR2M"
+            src="/rajveer-degree.jpeg"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
 

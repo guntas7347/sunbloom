@@ -6,10 +6,12 @@ import { ExternalLink } from "lucide-react";
 
 const About = () => {
   return (
-    <section className="py-20 bg-surface-container-lowest overflow-hidden text-left" id="about">
+    <section
+      className="py-20 bg-surface-container-lowest overflow-hidden text-left"
+      id="about"
+    >
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
           {/* Left column - Portrait card with borders */}
           <motion.div
             className="relative w-full max-w-md mx-auto"
@@ -22,7 +24,7 @@ const About = () => {
             <img
               alt="Professional Consultant"
               className="rounded-xl shadow-2xl w-full border border-outline-variant/10"
-              src="https://lh3.googleusercontent.com/aida/AP1WRLvhhYw_YugoxPt46HeS8NTFOUUzslIRz4KJ7o1MuuN5IRAiQCQu13W0UdmiHMnFIbjC-FIp4uyIY5ENmdmyPr-KzCcVBqNd7e6j3PRI8iWT9PzXTamtJap7LThrF4qhX0kAY_J5uURHXUR-d_VXIkCXIRI7HTxYuDNSmgHEa87EWpxtzWK7dbS8c3XIs6BOkBp-QErdtTIqGcBShtwHd4QgdIBLIcH_VSJRG2CKGheqnL-HP9fKEO4uR2M"
+              src="/rajveer.jpeg"
             />
           </motion.div>
 
@@ -38,7 +40,11 @@ const About = () => {
               Precision Expertise. Human Compassion.
             </h2>
             <p className="text-body-lg text-secondary leading-relaxed">
-              Sunbloom Immigration Ltd. was founded on the principle that immigration is not just a legal process, but a profound life transition. We provide expert legal guidance and strategic planning to help individuals and families navigate the Canadian immigration landscape.
+              Sunbloom Immigration Ltd. was founded on the principle that
+              immigration is not just a legal process, but a profound life
+              transition. We provide expert legal guidance and strategic
+              planning to help individuals and families navigate the Canadian
+              immigration landscape.
             </p>
 
             <div className="space-y-4 pt-2">
@@ -48,12 +54,16 @@ const About = () => {
                   gavel
                 </span>
                 <div>
-                  <h4 className="font-bold text-on-surface text-lg">CICC Authorized & Licensed</h4>
+                  <h4 className="font-bold text-on-surface text-lg">
+                    CICC Authorized & Licensed
+                  </h4>
                   <p className="text-sm font-semibold text-secondary mt-0.5">
                     Rajveer Kaur Gill (RCIC Consultant | College ID: R1054053)
                   </p>
                   <p className="text-xs text-secondary mt-1 max-w-md leading-relaxed">
-                    Fully authorized by the College of Immigration and Citizenship Consultants (CICC) to provide legal representation and professional counsel.
+                    Fully authorized by the College of Immigration and
+                    Citizenship Consultants (CICC) to provide legal
+                    representation and professional counsel.
                   </p>
                   <div className="pt-3">
                     <a
@@ -75,20 +85,30 @@ const About = () => {
                   school
                 </span>
                 <div className="space-y-2">
-                  <h4 className="font-bold text-on-surface text-lg">Professional Qualifications</h4>
+                  <h4 className="font-bold text-on-surface text-lg">
+                    Professional Qualifications
+                  </h4>
                   <ul className="space-y-2 text-xs text-secondary">
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-maple-red shrink-0" />
                       <div>
-                        <span className="font-semibold text-on-surface">Graduate Diploma in Immigration and Citizenship Law</span>
-                        <p className="opacity-80">Queen's University — Kingston, Canada</p>
+                        <span className="font-semibold text-on-surface">
+                          Graduate Diploma in Immigration and Citizenship Law
+                        </span>
+                        <p className="opacity-80">
+                          Queen's University — Kingston, Canada
+                        </p>
                       </div>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-maple-red shrink-0" />
                       <div>
-                        <span className="font-semibold text-on-surface">Bachelor of Science in Nursing</span>
-                        <p className="opacity-80">Faridkot College of Nursing — Baba Farid University</p>
+                        <span className="font-semibold text-on-surface">
+                          Bachelor of Science in Nursing
+                        </span>
+                        <p className="opacity-80">
+                          Faridkot College of Nursing — Baba Farid University
+                        </p>
                       </div>
                     </li>
                   </ul>
@@ -98,24 +118,30 @@ const About = () => {
               {/* Contact Indicators */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-outline-variant/10">
                 <div className="flex items-start gap-2 text-xs text-secondary">
-                  <span className="material-symbols-outlined text-maple-red text-[18px]">location_on</span>
+                  <span className="material-symbols-outlined text-maple-red text-[18px]">
+                    location_on
+                  </span>
                   <div>
-                    <span className="font-semibold text-on-surface block">Edmonton Office</span>
+                    <span className="font-semibold text-on-surface block">
+                      Edmonton Office
+                    </span>
                     3612 40th Avenue NW, Edmonton, AB, T6L6M8
                   </div>
                 </div>
                 <div className="flex items-start gap-2 text-xs text-secondary">
-                  <span className="material-symbols-outlined text-maple-red text-[18px]">call</span>
+                  <span className="material-symbols-outlined text-maple-red text-[18px]">
+                    call
+                  </span>
                   <div>
-                    <span className="font-semibold text-on-surface block">Direct Line</span>
+                    <span className="font-semibold text-on-surface block">
+                      Direct Line
+                    </span>
                     289-885-4848
                   </div>
                 </div>
               </div>
-
             </div>
           </motion.div>
-          
         </div>
       </div>
     </section>

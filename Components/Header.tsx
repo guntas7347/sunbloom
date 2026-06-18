@@ -30,7 +30,9 @@ const Header = () => {
           className="h-10 w-auto"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRKsv8JnVWmrJ490hukwN2mZkMnAOciaU8aOU-xlRe-Z-8y5tZDzFP4bBuaaW6flp4EKD8IiqE8H82Pw0_n0f_f29tcAJFB9TwSrAvCjasyUM6pLcMx13rSXVbtdUc31i7tll5QCXf2NT-MQV74JKvgyD1pcV7g_g349XFAyZ1iOiklVHxYPxWuEOyYdt64OCaf3FY2bZhP-MW0kKOB7NlToevjE8RFxdtj_Bl1bciLVuDyMa508rvKwsavh0rBmjSjLCAnapdv60"
         />
-        <span className="text-xl font-bold text-maple-red tracking-tight">Sunbloom</span>
+        <span className="text-xl font-bold hidden lg:block text-maple-red tracking-tight">
+          Sunbloom Immigration
+        </span>
       </Link>
 
       {/* Desktop Navigation */}
@@ -58,13 +60,6 @@ const Header = () => {
             {theme === "dark" ? "dark_mode" : "light_mode"}
           </span>
         </button>
-
-        <a
-          href="/admin/services"
-          className="hidden lg:block text-secondary font-label-md text-sm hover:text-maple-red transition-colors"
-        >
-          Client Portal
-        </a>
 
         <Link
           href="#appointment"
@@ -97,13 +92,6 @@ const Header = () => {
             </a>
           ))}
           <div className="pt-4 flex flex-col gap-4">
-            <a
-              href="/admin/services"
-              className="text-secondary font-label-md text-sm hover:text-maple-red transition-colors py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Client Portal
-            </a>
             <Link
               href="#appointment"
               className="gradient-maple text-white px-5 py-3 rounded-lg text-center font-bold shadow-md hover:opacity-95"
