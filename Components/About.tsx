@@ -1,112 +1,121 @@
+"use client";
+
 import React from "react";
-import {
-  User,
-  ExternalLink,
-  MapPin,
-  Phone,
-  ShieldCheck,
-  GraduationCap,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 
 const About = () => {
   return (
-    <section id="about" className="py-32 bg-white dark:bg-background-dark">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          <div className="flex-1">
-            <h2 className="text-3xl font-bold mb-6">
-              About Sunbloom Immigration
+    <section className="py-20 bg-surface-container-lowest overflow-hidden text-left" id="about">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left column - Portrait card with borders */}
+          <motion.div
+            className="relative w-full max-w-md mx-auto"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="absolute -top-6 -left-6 w-full h-full border-4 border-maple-red rounded-xl -z-10 translate-x-3 translate-y-3"></div>
+            <img
+              alt="Professional Consultant"
+              className="rounded-xl shadow-2xl w-full border border-outline-variant/10"
+              src="https://lh3.googleusercontent.com/aida/AP1WRLvhhYw_YugoxPt46HeS8NTFOUUzslIRz4KJ7o1MuuN5IRAiQCQu13W0UdmiHMnFIbjC-FIp4uyIY5ENmdmyPr-KzCcVBqNd7e6j3PRI8iWT9PzXTamtJap7LThrF4qhX0kAY_J5uURHXUR-d_VXIkCXIRI7HTxYuDNSmgHEa87EWpxtzWK7dbS8c3XIs6BOkBp-QErdtTIqGcBShtwHd4QgdIBLIcH_VSJRG2CKGheqnL-HP9fKEO4uR2M"
+            />
+          </motion.div>
+
+          {/* Right column - Copy & Details */}
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <h2 className="text-3xl font-bold font-headline-md text-on-surface">
+              Precision Expertise. Human Compassion.
             </h2>
-            <p className="text-lg mb-6 text-slate-600 dark:text-slate-400">
-              Sunbloom Immigration Ltd. is a dedicated consultancy firm
-              incorporated under the{" "}
-              <strong>Canada Business Corporations Act</strong>. We provide
-              expert legal guidance to individuals and families seeking to
-              navigate the complex Canadian immigration landscape.
+            <p className="text-body-lg text-secondary leading-relaxed">
+              Sunbloom Immigration Ltd. was founded on the principle that immigration is not just a legal process, but a profound life transition. We provide expert legal guidance and strategic planning to help individuals and families navigate the Canadian immigration landscape.
             </p>
-            <div className="bg-background-alt dark:bg-slate-800 p-10 rounded-2xl shadow-sm border border-primary-light">
-              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <User className="text-primary" />
-                Founder & Principal Immigration Consultant
-              </h3>
-              <p className="text-slate-900 dark:text-slate-100 font-bold text-lg mb-1">
-                Rajveer Kaur Gill
-              </p>
-              <p className="text-slate-600 dark:text-slate-400 text-sm mb-4">
-                RCIC Consultant | College ID: R1054053
-              </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
-                Authorized by the College of Immigration and Citizenship
-                Consultants (CICC) to provide professional immigration advice
-                and representation.
-              </p>
-              <a
-                target="_blank"
-                href="https://register.college-ic.ca/Public-Register-EN/Licensee/Profile.aspx?ID=54053"
-                className="inline-flex items-center gap-2 text-white font-bold bg-primary px-8 py-3 rounded-lg hover:bg-primary/90 transition-all"
-              >
-                Verify License
-                <ExternalLink size={16} />
-              </a>
-            </div>
-          </div>
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-            <div className="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm col-span-1 md:col-span-2">
-              <GraduationCap className="text-primary mb-4" />
-              <h4 className="font-bold mb-3">Professional Qualifications</h4>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-primary" />
-                  <div>
-                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
-                      Graduate Diploma in Immigration and Citizenship Law
-                    </p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                      Queen&apos;s University &mdash; Kingston, Canada
-                    </p>
+
+            <div className="space-y-4 pt-2">
+              {/* Consultant Card */}
+              <div className="flex items-start gap-4">
+                <span className="material-symbols-outlined text-maple-red bg-primary-container/30 p-2.5 rounded-full shrink-0">
+                  gavel
+                </span>
+                <div>
+                  <h4 className="font-bold text-on-surface text-lg">CICC Authorized & Licensed</h4>
+                  <p className="text-sm font-semibold text-secondary mt-0.5">
+                    Rajveer Kaur Gill (RCIC Consultant | College ID: R1054053)
+                  </p>
+                  <p className="text-xs text-secondary mt-1 max-w-md leading-relaxed">
+                    Fully authorized by the College of Immigration and Citizenship Consultants (CICC) to provide legal representation and professional counsel.
+                  </p>
+                  <div className="pt-3">
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://register.college-ic.ca/Public-Register-EN/Licensee/Profile.aspx?ID=54053"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-maple-red hover:underline"
+                    >
+                      Verify License Details
+                      <ExternalLink size={13} />
+                    </a>
                   </div>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <span className="mt-1 shrink-0 w-1.5 h-1.5 rounded-full bg-primary" />
+                </div>
+              </div>
+
+              {/* Qualifications */}
+              <div className="flex items-start gap-4 pt-2">
+                <span className="material-symbols-outlined text-maple-red bg-primary-container/30 p-2.5 rounded-full shrink-0">
+                  school
+                </span>
+                <div className="space-y-2">
+                  <h4 className="font-bold text-on-surface text-lg">Professional Qualifications</h4>
+                  <ul className="space-y-2 text-xs text-secondary">
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-maple-red shrink-0" />
+                      <div>
+                        <span className="font-semibold text-on-surface">Graduate Diploma in Immigration and Citizenship Law</span>
+                        <p className="opacity-80">Queen's University — Kingston, Canada</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-maple-red shrink-0" />
+                      <div>
+                        <span className="font-semibold text-on-surface">Bachelor of Science in Nursing</span>
+                        <p className="opacity-80">Faridkot College of Nursing — Baba Farid University</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Contact Indicators */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-outline-variant/10">
+                <div className="flex items-start gap-2 text-xs text-secondary">
+                  <span className="material-symbols-outlined text-maple-red text-[18px]">location_on</span>
                   <div>
-                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
-                      Bachelor of Science in Nursing
-                    </p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                      University College of Nursing, Faridkot &mdash; Baba Farid
-                      University of Health Sciences, Faridkot
-                    </p>
+                    <span className="font-semibold text-on-surface block">Edmonton Office</span>
+                    3612 40th Avenue NW, Edmonton, AB, T6L6M8
                   </div>
-                </li>
-              </ul>
-            </div>{" "}
-            <div className="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
-              <MapPin className="text-primary mb-4" />
-              <h4 className="font-bold mb-2">Address</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                3612 40th Avenue NW
-                <br />
-                Edmonton, AB, Canada
-                <br />
-                T6L6M8
-              </p>
+                </div>
+                <div className="flex items-start gap-2 text-xs text-secondary">
+                  <span className="material-symbols-outlined text-maple-red text-[18px]">call</span>
+                  <div>
+                    <span className="font-semibold text-on-surface block">Direct Line</span>
+                    289-885-4848
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <div className="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm">
-              <Phone className="text-primary mb-4" />
-              <h4 className="font-bold mb-2">Phone</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                289-885-4848
-              </p>
-            </div>
-            <div className="p-6 bg-white dark:bg-slate-800 rounded-xl shadow-sm col-span-1 md:col-span-2">
-              <ShieldCheck className="text-primary mb-4" />
-              <h4 className="font-bold mb-2">Legal Status</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                Incorporated under Canada Business Corporations Act. Fully
-                compliant with CICC regulations.
-              </p>
-            </div>
-          </div>
+          </motion.div>
+          
         </div>
       </div>
     </section>

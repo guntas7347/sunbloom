@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useTheme } from "@/lib/useTheme";
 import Link from "next/link";
 
@@ -12,99 +12,109 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
+    { name: "Home", href: "#" },
     { name: "Services", href: "#services" },
+    { name: "Strategic Focus", href: "#strategy" },
     { name: "About", href: "#about" },
-    { name: "Appointment", href: "#appointment" },
-    { name: "Intake Form", href: "/intake-form" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "FAQ", href: "#faq" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full glass-effect border-b border-primary-light">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-around items-center min-h-16 py-2">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="text-primary bg-white size-20">
-              <img src="/sunbloom-full.png" alt="Sunbloom Immigration Ltd." />
-            </div>
-            {/* <span className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-100">
-              Sunbloom Immigration
-            </span> */}
-          </Link>
+    <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 lg:px-12 py-4 glass-nav border-b border-outline-variant/20 transition-all duration-300">
+      {/* Logo */}
+      <Link href="/" className="flex items-center gap-3">
+        <img
+          alt="Sunbloom Logo"
+          className="h-10 w-auto"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRKsv8JnVWmrJ490hukwN2mZkMnAOciaU8aOU-xlRe-Z-8y5tZDzFP4bBuaaW6flp4EKD8IiqE8H82Pw0_n0f_f29tcAJFB9TwSrAvCjasyUM6pLcMx13rSXVbtdUc31i7tll5QCXf2NT-MQV74JKvgyD1pcV7g_g349XFAyZ1iOiklVHxYPxWuEOyYdt64OCaf3FY2bZhP-MW0kKOB7NlToevjE8RFxdtj_Bl1bciLVuDyMa508rvKwsavh0rBmjSjLCAnapdv60"
+        />
+        <span className="text-xl font-bold text-maple-red tracking-tight">Sunbloom</span>
+      </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                className="text-sm font-medium hover:text-primary transition-colors"
-                href={link.href}
-              >
-                {link.name}
-              </a>
-            ))}
+      {/* Desktop Navigation */}
+      <nav className="hidden md:flex items-center gap-6 lg:gap-8">
+        {navLinks.map((link) => (
+          <a
+            key={link.name}
+            className="font-label-md text-sm text-secondary hover:text-maple-red transition-colors"
+            href={link.href}
+          >
+            {link.name}
+          </a>
+        ))}
+      </nav>
 
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-slate-600 dark:text-slate-400"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+      {/* Action Buttons */}
+      <div className="flex items-center gap-4">
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          aria-label="Toggle Dark Mode"
+          className="p-2 rounded-full hover:bg-surface-variant transition-colors text-secondary hover:text-maple-red flex items-center justify-center cursor-pointer"
+        >
+          <span className="material-symbols-outlined text-[20px]">
+            {theme === "dark" ? "dark_mode" : "light_mode"}
+          </span>
+        </button>
 
-            <Link
-              href="/#appointment"
-              className="bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-bold shadow-sm hover:bg-primary/90 transition-all"
-            >
-              Book Appointment
-            </Link>
-          </div>
+        <a
+          href="/admin/services"
+          className="hidden lg:block text-secondary font-label-md text-sm hover:text-maple-red transition-colors"
+        >
+          Client Portal
+        </a>
 
-          {/* Mobile Buttons */}
-          <div className="md:hidden flex items-center gap-4">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-primary/10 transition-colors text-slate-600 dark:text-slate-400"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            <button
-              onClick={toggleMenu}
-              className="text-slate-900 dark:text-slate-100 p-2"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
+        <Link
+          href="#appointment"
+          className="gradient-maple text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-sm hover:scale-95 transition-all active:scale-90"
+        >
+          Free Assessment
+        </Link>
+
+        {/* Mobile Burger Menu Button */}
+        <button
+          onClick={toggleMenu}
+          className="md:hidden text-secondary p-1 flex items-center justify-center hover:bg-surface-variant rounded-lg"
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
-        <div className="md:hidden glass-effect border-t border-primary-light">
-          <div className="px-4 pt-2 pb-6 space-y-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block px-3 py-4 text-base font-medium text-slate-700 dark:text-slate-300 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="pt-4 px-3">
-              <button className="w-full bg-primary text-white px-6 py-3 rounded-lg text-sm font-bold shadow-sm hover:bg-primary/90 transition-all">
-                Book Appointment
-              </button>
-            </div>
+        <div className="absolute top-[72px] left-0 w-full bg-background border-b border-outline-variant/25 md:hidden shadow-xl p-6 space-y-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="block font-label-md text-base text-on-surface hover:text-maple-red transition-colors py-2 border-b border-outline-variant/10"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
+          <div className="pt-4 flex flex-col gap-4">
+            <a
+              href="/admin/services"
+              className="text-secondary font-label-md text-sm hover:text-maple-red transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Client Portal
+            </a>
+            <Link
+              href="#appointment"
+              className="gradient-maple text-white px-5 py-3 rounded-lg text-center font-bold shadow-md hover:opacity-95"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Free Assessment
+            </Link>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 

@@ -2,25 +2,12 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-
-import {
-  Plane,
-  Users,
-  GraduationCap,
-  Briefcase,
-  Home,
-  Award,
-  FileText,
-  Zap,
-  Map,
-  Heart,
-  Gavel,
-  ChevronDown,
-  ArrowRight,
-} from "lucide-react";
+import * as Icons from "lucide-react";
+import { ServicePackage } from "@/lib/firebase/services";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 type Service = {
-  icon: React.ElementType;
+  icon: string;
   title: string;
   desc: string;
   details: string[];
@@ -28,230 +15,87 @@ type Service = {
   tagColor: string;
 };
 
-const SERVICES: Service[] = [
+const DEFAULT_SERVICES: Service[] = [
   {
-    icon: Plane,
-    title: "Visitor Visa",
+    icon: "Zap",
+    title: "Express Entry 2.0",
+    desc: "Optimized for STEM, Healthcare, and Skilled Trades with category-based selection strategies.",
+    tag: "Fast-Track",
+    tagColor: "bg-primary-container/30 text-on-primary-container",
+    details: [
+      "Federal Skilled Worker, CEC & FST streams",
+      "CRS score assessment & improvement strategy",
+      "ITA to PR submission in under 6 months",
+      "Category-based draws targeting priority sectors",
+    ],
+  },
+  {
+    icon: "Map",
+    title: "PNP Specialized",
+    desc: "Provincial Nomination programs tailored to specific labor market needs in Ontario, BC, and Alberta.",
+    tag: "Provincial",
+    tagColor: "bg-secondary-container/50 text-on-secondary-container",
+    details: [
+      "Provincial streams aligned with local economic priorities",
+      "Additional 600 CRS points upon nomination",
+      "Base PNP streams for direct direct-to-province applications",
+    ],
+  },
+  {
+    icon: "Plane",
+    title: "Visitor Visa & Travel",
     desc: "Explore Canada for tourism, family visits, or short business trips.",
     tag: "Temporary",
     tagColor: "bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300",
     details: [
       "Single or multiple-entry visa options",
       "Maximum stay of up to 6 months per visit",
-      "Covers tourism, family reunions & business meetings",
-      "Biometric requirements handled end-to-end",
-      "Urgent / priority processing available",
+      "PRTD application support for permanent residents",
     ],
   },
   {
-    icon: Users,
-    title: "Super Visa",
-    desc: "Long-term stay options for parents and grandparents of citizens/PRs.",
-    tag: "Family",
-    tagColor:
-      "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300",
+    icon: "GraduationCap",
+    title: "Work & Study Permits",
+    desc: "Strategic planning for students and temporary workers aiming for long-term residency status.",
+    tag: "Permits",
+    tagColor: "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
     details: [
-      "Valid for up to 10 years with multi-entry",
-      "Each stay up to 5 years without renewal",
-      "Requires private medical insurance proof",
-      "Income threshold documentation support",
-      "Faster approval than standard visitor visa",
+      "Study Permit at DLIs and PGWP pathway planning",
+      "SOWP for spouses of workers or students",
+      "LMIA compliance and closed/open work permits",
     ],
   },
   {
-    icon: GraduationCap,
-    title: "Study Permit",
-    desc: "Obtain authorization to study at designated learning institutions (DLI).",
-    tag: "Education",
-    tagColor:
-      "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
-    details: [
-      "Applies to colleges, universities & trade schools",
-      "Co-op & internship work authorization included",
-      "Off-campus work permit guidance (up to 20 hrs/wk)",
-      "Extension assistance before expiry",
-      "Pathway planning to PGWP and PR",
-    ],
-  },
-  {
-    icon: Briefcase,
-    title: "Work Permit",
-    desc: "Closed or open work permits for foreign workers in Canada.",
-    tag: "Employment",
-    tagColor:
-      "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
-    details: [
-      "Employer-specific (closed) & open permit options",
-      "LMIA-based and LMIA-exempt pathways",
-      "IEC Working Holiday program assistance",
-      "Intra-company transfer applications",
-      "Permit renewal & bridging permits",
-    ],
-  },
-  {
-    icon: Home,
-    title: "Permanent Residency",
-    desc: "Transition to living permanently in Canada through various pathways.",
-    tag: "PR",
-    tagColor:
-      "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300",
-    details: [
-      "Express Entry, PNP & Atlantic Immigration routes",
-      "CRS score optimization strategy",
-      "Document checklist & submission support",
-      "PR card application after landing",
-      "Citizenship eligibility planning",
-    ],
-  },
-  {
-    icon: Award,
-    title: "Citizenship",
-    desc: "The final step in your journey to become a Canadian citizen.",
-    tag: "Citizenship",
-    tagColor: "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300",
-    details: [
-      "Physical presence calculation & verification",
-      "Language proficiency test guidance",
-      "Citizenship test preparation resources",
-      "Dual citizenship eligibility assessment",
-      "Oath ceremony process explained",
-    ],
-  },
-  {
-    icon: FileText,
-    title: "PRTD",
-    desc: "Travel documents for permanent residents without valid PR cards.",
-    tag: "Travel",
-    tagColor: "bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300",
-    details: [
-      "Urgent & emergency PRTD applications",
-      "Eligibility verification & document review",
-      "Overseas application support",
-      "Return-to-Canada travel assistance",
-      "PR card renewal upon return",
-    ],
-  },
-  {
-    icon: Zap,
-    title: "Express Entry",
-    desc: "Fast-tracked economic immigration for skilled workers.",
-    tag: "Fast-Track",
-    tagColor:
-      "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300",
-    details: [
-      "Federal Skilled Worker, CEC & FST streams",
-      "CRS score assessment & improvement strategy",
-      "Profile creation & job bank optimization",
-      "ITA to PR submission in under 6 months",
-      "Provincial nomination to boost CRS by 600 pts",
-    ],
-  },
-  {
-    icon: Map,
-    title: "PNP",
-    desc: "Provincial Nominee Programs tailored to local economic needs.",
-    tag: "Provincial",
-    tagColor:
-      "bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300",
-    details: [
-      "All 11 provincial & territorial programs covered",
-      "Aligned to your occupation & region of choice",
-      "Enhanced PNP stream (tied to Express Entry)",
-      "Base PNP stream for direct applications",
-      "Job offer secured pathways assistance",
-    ],
-  },
-  {
-    icon: Briefcase,
-    title: "Business Visa",
-    desc: "Invest, start a business, or expand your operations in Canada.",
+    icon: "Home",
+    title: "Start-up & Corporate",
+    desc: "Comprehensive support for entrepreneurs and multinational companies expanding to Canada.",
     tag: "Business",
-    tagColor:
-      "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
+    tagColor: "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
     details: [
-      "Start-Up Visa for innovative entrepreneurs",
-      "Self-employed persons program",
-      "Intra-company transfer for executives",
-      "Business visitor entry guidance",
-      "Investment threshold & net worth documentation",
+      "Start-Up Visa for innovative tech founders",
+      "Intra-Company Transferee (ICT) work permits",
+      "LMIA support for corporate staff relocation",
     ],
   },
   {
-    icon: Heart,
-    title: "Spousal Sponsorship",
-    desc: "Unite with your loved ones through family class sponsorship.",
+    icon: "Heart",
+    title: "Family Sponsorship",
+    desc: "Reuniting families through Spousal, Parent, and Grandparent sponsorship applications.",
     tag: "Family",
-    tagColor:
-      "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300",
+    tagColor: "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300",
     details: [
-      "Spouse, common-law & conjugal partner streams",
-      "Inland & outland application options",
-      "Open Work Permit during processing",
-      "Relationship genuineness documentation",
-      "Dependent children included in application",
-    ],
-  },
-  {
-    icon: GraduationCap,
-    title: "PGWP",
-    desc: "Post-Graduation Work Permit for international students.",
-    tag: "Education",
-    tagColor:
-      "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
-    details: [
-      "Valid for up to 3 years based on program length",
-      "Applied within 180 days of graduation",
-      "Eligible for open work permit (work anywhere)",
-      "Counts toward Canadian work experience for CEC",
-      "Pathway to Express Entry & PR",
-    ],
-  },
-  {
-    icon: Users,
-    title: "SOWP",
-    desc: "Spousal Open Work Permit for partners of students/workers.",
-    tag: "Family",
-    tagColor:
-      "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300",
-    details: [
-      "Open permit — work for any employer in Canada",
-      "Available for spouses of study / work permit holders",
-      "Concurrent processing with principal applicant",
-      "Extends family income during stay",
-      "Bridge to sponsored PR applications",
-    ],
-  },
-  {
-    icon: FileText,
-    title: "LMIA Process",
-    desc: "Assistance for employers applying for Labour Market Impact Assessment.",
-    tag: "Employment",
-    tagColor:
-      "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
-    details: [
-      "High-wage & low-wage LMIA streams",
-      "Recruitment advertising compliance guidance",
-      "Application preparation & employer letters",
-      "Global Talent Stream (2-week processing)",
-      "LMIA exemption codes identified where applicable",
-    ],
-  },
-  {
-    icon: Gavel,
-    title: "Refugee Services",
-    desc: "Professional support for asylum and refugee applications.",
-    tag: "Protection",
-    tagColor:
-      "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300",
-    details: [
-      "Inland asylum & refugee board hearings",
-      "Refugee Protection Division (RPD) submissions",
-      "Pre-Removal Risk Assessment (PRRA) support",
-      "Humanitarian & compassionate (H&C) grounds",
-      "Safe third country agreement guidance",
+      "Spousal and common-law partner sponsorship",
+      "Super Visa applications for parents and grandparents",
+      "Adoption and dependent children class filings",
     ],
   },
 ];
+
+function ServiceIcon({ name, size = 22 }: { name: string; size?: number }) {
+  const IconComponent = (Icons as any)[name];
+  if (!IconComponent) return <Icons.Layers size={size} />;
+  return <IconComponent size={size} />;
+}
 
 /* Animated expand panel using a ref-measured height */
 function ExpandPanel({
@@ -274,8 +118,7 @@ function ExpandPanel({
         height: open ? height : 0,
         opacity: open ? 1 : 0,
         overflow: "hidden",
-        transition:
-          "height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease",
+        transition: "height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.28s ease",
       }}
     >
       <div ref={ref}>{children}</div>
@@ -283,30 +126,24 @@ function ExpandPanel({
   );
 }
 
-function ServiceCard({ service }: { service: Service }) {
+function ServiceCard({ service, index }: { service: Service; index: number }) {
   const [open, setOpen] = useState(false);
-  const Icon = service.icon;
 
   return (
     <div
       onClick={() => setOpen((o) => !o)}
-      className={`cursor-pointer bg-white dark:bg-slate-800 rounded-xl border transition-all duration-300 select-none
-        ${
-          open
-            ? "border-primary/50 shadow-xl shadow-primary/10 ring-1 ring-primary/20"
-            : "border-slate-100 dark:border-slate-700 hover:border-primary/30 hover:shadow-lg"
-        }`}
+      className={`cursor-pointer bg-surface-container-high p-8 rounded-xl border border-outline-variant/20 hover:-translate-y-2 transition-all duration-300 select-none ${
+        index === 0 ? "border-t-4 border-t-maple-red" : ""
+      } ${open ? "shadow-xl ring-1 ring-maple-red/20" : "hover:shadow-lg"}`}
     >
-      {/* card header */}
-      <div className="p-6 flex items-start gap-4">
-        <div
-          className={`p-2.5 rounded-lg transition-colors duration-300 ${open ? "bg-primary text-white" : "bg-primary/10 text-primary"}`}
-        >
-          <Icon size={22} />
+      {/* Card Header */}
+      <div className="flex items-start gap-4">
+        <div className={`p-2.5 rounded-lg text-maple-red bg-primary-container/30`}>
+          <ServiceIcon name={service.icon} size={24} />
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-1">
-            <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">
+            <h3 className="text-lg font-bold text-on-surface">
               {service.title}
             </h3>
             <span
@@ -315,59 +152,57 @@ function ServiceCard({ service }: { service: Service }) {
               {service.tag}
             </span>
           </div>
-          <p className="text-sm text-slate-500 dark:text-slate-400 leading-snug">
+          <p className="text-sm text-secondary leading-relaxed mt-2">
             {service.desc}
           </p>
         </div>
-        <ChevronDown
-          size={18}
-          className={`shrink-0 text-slate-400 transition-transform duration-300 mt-0.5 ${open ? "rotate-180 text-primary" : ""}`}
-        />
+        <span
+          className={`material-symbols-outlined text-secondary transition-transform duration-300 mt-1 ${
+            open ? "rotate-180 text-maple-red" : ""
+          }`}
+        >
+          keyboard_arrow_down
+        </span>
       </div>
 
-      {/* expandable details */}
+      {/* Expandable details */}
       <ExpandPanel open={open}>
-        <div className="px-6 pb-6 pt-0">
-          <div className="border-t border-dashed border-slate-200 dark:border-slate-700 pt-4 space-y-2">
-            {service.details.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-2.5 text-sm text-slate-600 dark:text-slate-300"
-              >
-                <ArrowRight
-                  size={14}
-                  className="text-primary mt-0.5 shrink-0"
-                />
-                <span>{item}</span>
-              </div>
-            ))}
-            <a
-              href="#appointment"
-              onClick={(e) => e.stopPropagation()}
-              className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:underline"
+        <div className="pt-4 mt-4 border-t border-dashed border-outline-variant/20 space-y-2 text-left">
+          {service.details.map((item, i) => (
+            <div
+              key={i}
+              className="flex items-start gap-2.5 text-sm text-secondary"
             >
-              Book a consultation <ArrowRight size={13} />
-            </a>
-          </div>
+              <ArrowRight size={14} className="text-maple-red mt-1 shrink-0" />
+              <span className="leading-relaxed">{item}</span>
+            </div>
+          ))}
+          <a
+            href="#appointment"
+            onClick={(e) => e.stopPropagation()}
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-maple-red hover:underline"
+          >
+            Book a consultation <ArrowRight size={13} />
+          </a>
         </div>
       </ExpandPanel>
     </div>
   );
 }
 
-// Define animation variants for the staggered grid
+// Define animation variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15, // Delay between each card animating in
+      staggerChildren: 0.1,
     },
   },
 };
 
 const itemVariants: any = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
@@ -379,61 +214,48 @@ const itemVariants: any = {
   },
 };
 
-const headerVariants: any = {
-  hidden: { opacity: 0, y: -20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
+interface ServicesProps {
+  services?: ServicePackage[];
+}
 
-const Services = () => {
+const Services = ({ services }: ServicesProps) => {
+  const displayServices: Service[] =
+    services && services.length > 0
+      ? services.map((s) => ({
+          icon: s.icon,
+          title: s.title,
+          desc: s.desc,
+          tag: s.tag,
+          tagColor: s.tagColor,
+          details: s.details,
+        }))
+      : DEFAULT_SERVICES;
+
   return (
-    <section
-      id="services"
-      className="py-32 bg-background-alt/50 dark:bg-background-dark/50"
-    >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Animated Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }} // Triggers when 100px away
-          variants={headerVariants}
-        >
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100">
-            Our Professional Services
+    <section id="services" className="py-20 bg-background">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+        
+        {/* Section Header */}
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-3xl font-bold font-headline-md text-on-surface">
+            Comprehensive Immigration Pathways
           </h2>
-
-          {/* Animated underline */}
-          <motion.div
-            className="h-1 bg-primary mx-auto mt-4 rounded-full"
-            initial={{ width: 0 }}
-            whileInView={{ width: 64 }} // 64px = w-16 in Tailwind
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          />
-
-          <p className="mt-4 text-slate-600 dark:text-slate-400">
-            Click any service to learn more — comprehensive support for all your
-            Canadian immigration needs
+          <p className="text-body-md text-secondary max-w-2xl mx-auto leading-relaxed">
+            From individual skilled workers to corporate relocations, our expertise spans across every major Canadian immigration category.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Animated Grid with Staggered Cards */}
+        {/* Dynamic Bento Cards Grid */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          {SERVICES.map((service, i) => (
-            // Wrapping the card in a motion.div to apply the stagger effect
+          {displayServices.map((service, i) => (
             <motion.div key={i} variants={itemVariants}>
-              <ServiceCard service={service} />
+              <ServiceCard service={service} index={i} />
             </motion.div>
           ))}
         </motion.div>

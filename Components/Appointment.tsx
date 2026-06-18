@@ -56,19 +56,21 @@ function Field({
   icon: Icon,
   children,
   delay = "0ms",
+  className = "",
 }: {
   label: string;
   icon: React.ElementType;
   children: React.ReactNode;
   delay?: string;
+  className?: string;
 }) {
   return (
     <div
-      className="group/field flex flex-col gap-1.5"
+      className={`group/field flex flex-col gap-1.5 ${className}`}
       style={{ animation: `fadeSlideUp 0.5s ${delay} both` }}
     >
-      <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-        <Icon size={12} className="text-primary" />
+      <label className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-secondary">
+        <Icon size={12} className="text-maple-red" />
         {label}
       </label>
       {children}
@@ -77,7 +79,7 @@ function Field({
 }
 
 const inputCls =
-  "w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 placeholder-slate-400 text-sm outline-none ring-0 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200";
+  "w-full px-4 py-3 rounded-lg border border-outline-variant/30 bg-surface-container text-on-surface placeholder-secondary/50 text-sm outline-none ring-0 focus:border-maple-red focus:ring-2 focus:ring-maple-red/20 transition-all duration-200";
 
 export default function Appointment() {
   const [form, setForm] = useState<FormState>(EMPTY);
@@ -159,54 +161,48 @@ export default function Appointment() {
 
       <section
         id="appointment"
-        className="py-28 bg-gradient-to-b from-white to-background-alt/40 dark:from-background-dark dark:to-slate-900"
+        className="py-20 bg-surface-container-low"
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* ── header ── */}
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          {/* header */}
           <div
             className="text-center mb-14"
             style={{ animation: "fadeSlideUp 0.5s both" }}
           >
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-bold px-4 py-2 rounded-full mb-5">
-              <Phone size={12} />
-              Appointment {/* Free Consultation • No Commitment */}
+            <div className="inline-flex items-center gap-2 bg-primary-container/30 text-on-primary-container text-xs font-bold px-4 py-2 rounded-full mb-5 border border-primary-container/50">
+              <Phone size={12} className="text-maple-red" />
+              Appointment Scheduling
             </div>
-            <h2 className="text-4xl font-black text-slate-900 dark:text-slate-100 leading-tight">
-              Request a{" "}
-              <span className="relative inline-block">
-                <span className="text-primary">Callback</span>
-                <span className="absolute -bottom-1 left-0 w-full h-1 bg-primary/25 rounded-full" />
-              </span>
+            <h2 className="text-3xl font-bold font-headline-md text-on-surface leading-tight">
+              Request a <span className="text-maple-red">Callback</span>
             </h2>
-            <p className="mt-3 text-slate-500 dark:text-slate-400 max-w-md mx-auto">
-              Tell us about your case and we'll reach out at your preferred time
-              — no obligation.
+            <p className="mt-3 text-secondary max-w-md mx-auto text-sm leading-relaxed">
+              Tell us about your case and we'll reach out at your preferred time — no obligation.
             </p>
           </div>
 
-          {/* ── card ── */}
+          {/* card */}
           <div
-            className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl shadow-slate-200/60 dark:shadow-black/40 border border-slate-100 dark:border-slate-700 overflow-hidden"
+            className="bg-surface rounded-2xl shadow-xl border border-outline-variant/15 overflow-hidden"
             style={{ animation: "fadeSlideUp 0.55s 0.1s both" }}
           >
             {/* top accent bar */}
-            <div className="h-1.5 bg-gradient-to-r from-primary via-primary/60 to-primary/20" />
+            <div className="h-1.5 gradient-maple" />
 
             {submitted ? (
-              /* ── success state ── */
+              /* success state */
               <div
-                className="p-16 flex flex-col items-center text-center gap-4"
-                style={{ animation: "popIn 0.5s both" }}
+                className="p-16 flex flex-col items-center text-center gap-4 animate-[popIn_0.5s_both]"
               >
                 <div className="bg-green-100 dark:bg-green-900/30 p-5 rounded-full">
-                  <CheckCircle2 size={48} className="text-green-500" />
+                  <CheckCircle2 size={48} className="text-green-600" />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 dark:text-slate-100">
+                <h3 className="text-2xl font-bold text-on-surface">
                   We'll call you back!
                 </h3>
-                <p className="text-slate-500 dark:text-slate-400 max-w-sm">
+                <p className="text-secondary max-w-sm text-sm">
                   Your request has been received. Our team will reach out at{" "}
-                  <strong className="text-slate-700 dark:text-slate-300">
+                  <strong className="text-on-surface">
                     {form.phone || "your number"}
                   </strong>{" "}
                   shortly.
@@ -216,7 +212,7 @@ export default function Appointment() {
                     setForm(EMPTY);
                     setSubmitted(false);
                   }}
-                  className="mt-4 text-sm text-primary font-bold hover:underline"
+                  className="mt-4 text-sm text-maple-red font-bold hover:underline"
                 >
                   Submit another request
                 </button>
@@ -297,16 +293,14 @@ export default function Appointment() {
                   />
                 </Field>
 
-                <Field label="Your Message" icon={MessageSquare} delay="360ms">
-                  <div className="md:col-span-2">
-                    <textarea
-                      className={`${inputCls} resize-none`}
-                      placeholder="Briefly describe your situation or ask a question…"
-                      rows={4}
-                      value={form.message}
-                      onChange={set("message")}
-                    />
-                  </div>
+                <Field label="Your Message" icon={MessageSquare} delay="360ms" className="md:col-span-2">
+                  <textarea
+                    className={`${inputCls} resize-none`}
+                    placeholder="Briefly describe your situation or ask a question…"
+                    rows={4}
+                    value={form.message}
+                    onChange={set("message")}
+                  />
                 </Field>
 
                 {/* submit — spans full width */}
@@ -317,7 +311,7 @@ export default function Appointment() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full flex items-center justify-center gap-3 bg-primary text-white py-4 rounded-xl font-bold text-base shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
+                    className="w-full flex items-center justify-center gap-3 gradient-maple text-white py-4 rounded-lg font-bold text-base shadow-md hover:scale-[0.99] active:scale-[0.97] transition-all duration-205 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
                     {submitting ? (
                       <>
@@ -331,9 +325,8 @@ export default function Appointment() {
                       </>
                     )}
                   </button>
-                  <p className="text-center text-xs text-slate-400 mt-3">
-                    We respond within 1 business day · All consultations are
-                    confidential
+                  <p className="text-center text-xs text-secondary mt-3">
+                    We respond within 1 business day · All consultations are confidential
                   </p>
                 </div>
               </form>
