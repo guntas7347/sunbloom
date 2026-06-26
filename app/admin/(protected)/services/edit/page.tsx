@@ -19,7 +19,9 @@ import {
   Layers,
   Sparkles,
   Tag,
+  ImageIcon,
 } from "lucide-react";
+import ImageUploader from "@/Components/ImageUploader";
 
 const PREDEFINED_ICONS = [
   "Plane",
@@ -71,6 +73,7 @@ export default function EditServicePage() {
     tagColor: PREDEFINED_COLORS[0].value,
     icon: PREDEFINED_ICONS[0],
     details: "",
+    imageUrl: "",
     active: true,
   });
 
@@ -87,6 +90,7 @@ export default function EditServicePage() {
         tagColor: data.tagColor || PREDEFINED_COLORS[0].value,
         icon: data.icon || PREDEFINED_ICONS[0],
         details: data.details ? data.details.join("\n") : "",
+        imageUrl: data.imageUrl || "",
         active: data.active !== undefined ? data.active : true,
       });
 
@@ -109,6 +113,7 @@ export default function EditServicePage() {
       tagColor: form.tagColor,
       icon: form.icon,
       details: form.details.split("\n").filter(Boolean),
+      imageUrl: form.imageUrl,
       active: form.active,
     };
 
@@ -386,6 +391,21 @@ export default function EditServicePage() {
                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
               </label>
             </div>
+          </div>
+
+          {/* Featured Image Card */}
+          <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-4">
+            <h3 className="font-semibold text-gray-900 border-b border-gray-100 pb-3 flex items-center gap-2">
+              <ImageIcon size={18} className="text-indigo-600" />
+              Featured Image
+            </h3>
+            <ImageUploader
+              value={form.imageUrl}
+              onChange={(url) => setForm({ ...form, imageUrl: url })}
+            />
+            <p className="text-xs text-gray-400 text-center">
+              Recommended: high resolution banner (max. 800x400px)
+            </p>
           </div>
         </div>
       </div>

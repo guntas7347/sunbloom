@@ -17,6 +17,7 @@ import {
   HelpCircle,
   Menu,
   X,
+  Home,
 } from "lucide-react";
 
 // Configuration for links
@@ -27,6 +28,8 @@ const navLinks = [
   // { name: "Pricing", href: "/admin/pricing", icon: CreditCard },
   // { name: "Addons", href: "/admin/addons", icon: Puzzle },
   { name: "FAQs", href: "/admin/faqs", icon: HelpCircle },
+  { name: "Oath Docs", href: "/admin/oath-docs", icon: FileText },
+  { name: "Oath FAQs", href: "/admin/oath-faqs", icon: HelpCircle },
 ];
 
 export default function AdminNavbar() {
@@ -57,7 +60,7 @@ export default function AdminNavbar() {
             <Link href="/admin" className="flex items-center gap-2 group">
               <div className="relative h-8 w-8 overflow-hidden rounded-lg shadow-sm group-hover:shadow-md transition-all">
                 <img
-                  src="/logo.png"
+                  src="/sunbloom-logo.png"
                   alt="Logo"
                   className="object-cover w-full h-full"
                 />
@@ -114,6 +117,19 @@ export default function AdminNavbar() {
             )}
 
             {/* Logout Button (Desktop) */}
+
+            {/* Logout Button (Desktop) */}
+            <Link
+              href="/"
+              className="hidden sm:flex group items-center gap-2 px-3 py-2 text-sm font-medium text-slate-600 hover:text-red-600 transition-colors"
+              title="Home"
+            >
+              <Home
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </Link>
+
             <button
               onClick={handleLogout}
               className="hidden sm:flex group items-center gap-2 px-3 py-2 text-sm font-medium text-slate-600 hover:text-red-600 transition-colors"

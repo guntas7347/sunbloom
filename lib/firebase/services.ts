@@ -24,6 +24,7 @@ export interface ServicePackage {
   tag: string;
   tagColor: string;
   details: string[];
+  imageUrl?: string;
   active: boolean;
   createdAt?: number | null; // normalized
 }
@@ -37,6 +38,7 @@ export const DEFAULT_SERVICES: Omit<ServicePackage, "id" | "createdAt">[] = [
     desc: "Optimized for STEM, Healthcare, and Skilled Trades with category-based selection strategies.",
     tag: "Fast-Track",
     tagColor: "bg-primary-container/30 text-on-primary-container",
+    imageUrl: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80",
     details: [
       "Federal Skilled Worker, CEC & FST streams",
       "CRS score assessment & improvement strategy",
@@ -51,6 +53,7 @@ export const DEFAULT_SERVICES: Omit<ServicePackage, "id" | "createdAt">[] = [
     desc: "Provincial Nomination programs tailored to specific labor market needs in Ontario, BC, and Alberta.",
     tag: "Provincial",
     tagColor: "bg-secondary-container/50 text-on-secondary-container",
+    imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
     details: [
       "Provincial streams aligned with local economic priorities",
       "Additional 600 CRS points upon nomination",
@@ -64,6 +67,7 @@ export const DEFAULT_SERVICES: Omit<ServicePackage, "id" | "createdAt">[] = [
     desc: "Explore Canada for tourism, family visits, or short business trips.",
     tag: "Temporary",
     tagColor: "bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300",
+    imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
     details: [
       "Single or multiple-entry visa options",
       "Maximum stay of up to 6 months per visit",
@@ -78,6 +82,7 @@ export const DEFAULT_SERVICES: Omit<ServicePackage, "id" | "createdAt">[] = [
     tag: "Permits",
     tagColor:
       "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
+    imageUrl: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
     details: [
       "Study Permit at DLIs and PGWP pathway planning",
       "SOWP for spouses of workers or students",
@@ -92,6 +97,7 @@ export const DEFAULT_SERVICES: Omit<ServicePackage, "id" | "createdAt">[] = [
     tag: "Business",
     tagColor:
       "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
+    imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
     details: [
       "Start-Up Visa for innovative tech founders",
       "Intra-Company Transferee (ICT) work permits",
@@ -106,6 +112,7 @@ export const DEFAULT_SERVICES: Omit<ServicePackage, "id" | "createdAt">[] = [
     tag: "Family",
     tagColor:
       "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300",
+    imageUrl: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80",
     details: [
       "Spousal and common-law partner sponsorship",
       "Super Visa applications for parents and grandparents",
@@ -117,7 +124,7 @@ export const DEFAULT_SERVICES: Omit<ServicePackage, "id" | "createdAt">[] = [
 
 /* ================================
    Normalizer
-================================ */
+   ================================ */
 
 function normalizeService(id: string, data: any): ServicePackage {
   return {
@@ -128,6 +135,7 @@ function normalizeService(id: string, data: any): ServicePackage {
     tag: data.tag || "",
     tagColor: data.tagColor || "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300",
     details: data.details || [],
+    imageUrl: data.imageUrl || "",
     active: data.active !== undefined ? data.active : true,
     createdAt: data.createdAt?.toMillis?.() ?? null,
   };

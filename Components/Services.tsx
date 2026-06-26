@@ -13,6 +13,7 @@ type Service = {
   details: string[];
   tag: string;
   tagColor: string;
+  imageUrl?: string;
 };
 
 
@@ -55,65 +56,91 @@ function ExpandPanel({
 function ServiceCard({ service, index }: { service: Service; index: number }) {
   const [open, setOpen] = useState(false);
 
+  // Curated fallback default images based on title
+  const defaultImages: Record<string, string> = {
+    "Express Entry 2.0": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80",
+    "PNP Specialized": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    "Visitor Visa & Travel": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+    "Work & Study Permits": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
+    "Start-up & Corporate": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
+    "Family Sponsorship": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80",
+  };
+
+  const cardImage = service.imageUrl || defaultImages[service.title] || "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80";
+
   return (
     <div
       onClick={() => setOpen((o) => !o)}
-      className={`cursor-pointer bg-surface-container-high p-8 rounded-xl border border-outline-variant/20 hover:-translate-y-2 transition-all duration-300 select-none ${
+      className={`cursor-pointer bg-surface-container-high rounded-xl border border-outline-variant/20 hover:-translate-y-2 transition-all duration-300 select-none overflow-hidden ${
         index === 0 ? "border-t-4 border-t-maple-red" : ""
       } ${open ? "shadow-xl ring-1 ring-maple-red/20" : "hover:shadow-lg"}`}
     >
-      {/* Card Header */}
-      <div className="flex items-start gap-4">
-        <div
-          className={`p-2.5 rounded-lg text-maple-red bg-primary-container/30`}
-        >
-          <ServiceIcon name={service.icon} size={24} />
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap mb-1">
-            <h3 className="text-lg font-bold text-on-surface">
-              {service.title}
-            </h3>
-            <span
-              className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${service.tagColor}`}
-            >
-              {service.tag}
-            </span>
-          </div>
-          <p className="text-sm text-secondary leading-relaxed mt-2">
-            {service.desc}
-          </p>
-        </div>
-        <span
-          className={`material-symbols-outlined text-secondary transition-transform duration-300 mt-1 ${
-            open ? "rotate-180 text-maple-red" : ""
-          }`}
-        >
-          keyboard_arrow_down
-        </span>
+      {/* Featured Card Image */}
+      <div className="relative w-full h-44 overflow-hidden bg-muted">
+        <img
+          src={cardImage}
+          alt={service.title}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        />
+        {/* Subtle dark gradient overlay over image bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
       </div>
 
-      {/* Expandable details */}
-      <ExpandPanel open={open}>
-        <div className="pt-4 mt-4 border-t border-dashed border-outline-variant/20 space-y-2 text-left">
-          {service.details.map((item, i) => (
-            <div
-              key={i}
-              className="flex items-start gap-2.5 text-sm text-secondary"
-            >
-              <ArrowRight size={14} className="text-maple-red mt-1 shrink-0" />
-              <span className="leading-relaxed">{item}</span>
-            </div>
-          ))}
-          <a
-            href="#appointment"
-            onClick={(e) => e.stopPropagation()}
-            className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-maple-red hover:underline"
+      {/* Card Content Container */}
+      <div className="p-6">
+        {/* Card Header */}
+        <div className="flex items-start gap-4">
+          <div
+            className={`p-2.5 rounded-lg text-maple-red bg-primary-container/30 shrink-0`}
           >
-            Book a consultation <ArrowRight size={13} />
-          </a>
+            <ServiceIcon name={service.icon} size={22} />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 flex-wrap mb-1">
+              <h3 className="text-base font-bold text-on-surface leading-snug">
+                {service.title}
+              </h3>
+              <span
+                className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${service.tagColor}`}
+              >
+                {service.tag}
+              </span>
+            </div>
+            <p className="text-xs text-secondary leading-relaxed mt-2 line-clamp-3">
+              {service.desc}
+            </p>
+          </div>
+          <span
+            className={`material-symbols-outlined text-secondary transition-transform duration-300 mt-1 shrink-0 ${
+              open ? "rotate-180 text-maple-red" : ""
+            }`}
+          >
+            keyboard_arrow_down
+          </span>
         </div>
-      </ExpandPanel>
+
+        {/* Expandable details */}
+        <ExpandPanel open={open}>
+          <div className="pt-4 mt-4 border-t border-dashed border-outline-variant/20 space-y-2 text-left">
+            {service.details.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-2.5 text-xs text-secondary"
+              >
+                <ArrowRight size={13} className="text-maple-red mt-0.5 shrink-0" />
+                <span className="leading-relaxed">{item}</span>
+              </div>
+            ))}
+            <a
+              href="#appointment"
+              onClick={(e) => e.stopPropagation()}
+              className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-maple-red hover:underline"
+            >
+              Book a consultation <ArrowRight size={12} />
+            </a>
+          </div>
+        </ExpandPanel>
+      </div>
     </div>
   );
 }
@@ -156,6 +183,7 @@ const Services = ({ services }: ServicesProps) => {
           tag: s.tag,
           tagColor: s.tagColor,
           details: s.details,
+          imageUrl: s.imageUrl,
         }))
       : (DEFAULT_SERVICES as Service[]);
 

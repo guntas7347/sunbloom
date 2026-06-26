@@ -12,13 +12,17 @@ const Header = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Services", href: "#services" },
-    { name: "Strategic Focus", href: "#strategy" },
-    { name: "About", href: "#about" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/#services" },
+    { name: "Intake Form", href: "/intake-form" },
+    {
+      name: "Oath",
+      href: "/oath",
+    },
+    { name: "About", href: "/#about" },
+    { name: "Testimonials", href: "/#testimonials" },
+    { name: "FAQ", href: "/#faq" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (

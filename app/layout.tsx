@@ -46,11 +46,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-background text-on-surface font-body-md overflow-x-hidden transition-colors duration-300">
-        <ReactLenis root>
-          <Header />
-          <div className="mt-[72px]">{children}</div>
-          <Footer />
-        </ReactLenis>
+        <ReactLenis root>{children}</ReactLenis>
       </body>
     </html>
   );
