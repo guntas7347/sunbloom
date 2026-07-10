@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -51,6 +52,12 @@ const Hero = () => {
             >
               Our Services
             </a>
+            <Link
+              href="/oath"
+              className="border-2 border-outline-variant text-secondary px-8 py-4 rounded-lg font-bold hover:bg-surface-variant transition-colors"
+            >
+              Oath Commissioner
+            </Link>
           </div>
         </motion.div>
 
