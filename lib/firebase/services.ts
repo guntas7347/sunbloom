@@ -29,98 +29,9 @@ export interface ServicePackage {
   createdAt?: number | null; // normalized
 }
 
-const COL = "packages";
+const COL = "Services";
 
-export const DEFAULT_SERVICES: Omit<ServicePackage, "id" | "createdAt">[] = [
-  {
-    icon: "Zap",
-    title: "Express Entry 2.0",
-    desc: "Optimized for STEM, Healthcare, and Skilled Trades with category-based selection strategies.",
-    tag: "Fast-Track",
-    tagColor: "bg-primary-container/30 text-on-primary-container",
-    imageUrl: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80",
-    details: [
-      "Federal Skilled Worker, CEC & FST streams",
-      "CRS score assessment & improvement strategy",
-      "ITA to PR submission in under 6 months",
-      "Category-based draws targeting priority sectors",
-    ],
-    active: true,
-  },
-  {
-    icon: "Map",
-    title: "PNP Specialized",
-    desc: "Provincial Nomination programs tailored to specific labor market needs in Ontario, BC, and Alberta.",
-    tag: "Provincial",
-    tagColor: "bg-secondary-container/50 text-on-secondary-container",
-    imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-    details: [
-      "Provincial streams aligned with local economic priorities",
-      "Additional 600 CRS points upon nomination",
-      "Base PNP streams for direct direct-to-province applications",
-    ],
-    active: true,
-  },
-  {
-    icon: "Plane",
-    title: "Visitor Visa & Travel",
-    desc: "Explore Canada for tourism, family visits, or short business trips.",
-    tag: "Temporary",
-    tagColor: "bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300",
-    imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
-    details: [
-      "Single or multiple-entry visa options",
-      "Maximum stay of up to 6 months per visit",
-      "PRTD application support for permanent residents",
-    ],
-    active: true,
-  },
-  {
-    icon: "GraduationCap",
-    title: "Work & Study Permits",
-    desc: "Strategic planning for students and temporary workers aiming for long-term residency status.",
-    tag: "Permits",
-    tagColor:
-      "bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300",
-    imageUrl: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
-    details: [
-      "Study Permit at DLIs and PGWP pathway planning",
-      "SOWP for spouses of workers or students",
-      "LMIA compliance and closed/open work permits",
-    ],
-    active: true,
-  },
-  {
-    icon: "Home",
-    title: "Start-up & Corporate",
-    desc: "Comprehensive support for entrepreneurs and multinational companies expanding to Canada.",
-    tag: "Business",
-    tagColor:
-      "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300",
-    imageUrl: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
-    details: [
-      "Start-Up Visa for innovative tech founders",
-      "Intra-Company Transferee (ICT) work permits",
-      "LMIA support for corporate staff relocation",
-    ],
-    active: true,
-  },
-  {
-    icon: "Heart",
-    title: "Family Sponsorship",
-    desc: "Reuniting families through Spousal, Parent, and Grandparent sponsorship applications.",
-    tag: "Family",
-    tagColor:
-      "bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300",
-    imageUrl: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80",
-    details: [
-      "Spousal and common-law partner sponsorship",
-      "Super Visa applications for parents and grandparents",
-      "Adoption and dependent children class filings",
-    ],
-    active: true,
-  },
-];
+
 
 /* ================================
    Normalizer
@@ -153,10 +64,7 @@ export async function getAllServices(): Promise<ServicePackage[]> {
 
 // Paginated
 export async function getServicesPage(pageSize = 20, cursor?: any) {
-  const allSnap = await getDocs(collection(db, COL));
-  if (allSnap.empty) {
-    await seedServices();
-  }
+
 
   let q;
 
@@ -190,10 +98,7 @@ export async function getServicesPage(pageSize = 20, cursor?: any) {
 
 // Get only active services (public)
 export async function getActiveServices(): Promise<ServicePackage[]> {
-  const allSnap = await getDocs(collection(db, COL));
-  if (allSnap.empty) {
-    await seedServices();
-  }
+
 
   const q = query(collection(db, COL), where("active", "==", true));
   const snap = await getDocs(q);
@@ -213,18 +118,7 @@ export async function getServiceById(
    Mutations
 ================================ */
 
-// Seed
-export async function seedServices() {
-  console.log("Seeding default services to Firebase...");
-  for (const service of DEFAULT_SERVICES) {
-    const payload = {
-      ...service,
-      createdAt: serverTimestamp(),
-    };
-    await addDoc(collection(db, COL), payload);
-  }
-  await revalidatePaths(["/services"]);
-}
+
 
 // Create
 export async function createService(data: ServicePackage) {

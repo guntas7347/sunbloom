@@ -22,8 +22,8 @@ const CONTACT_ITEMS = [
   {
     icon: MapPin,
     label: "Registered Office Address",
-    value: "25415 Terrault Rd, Sturgeon County, AB T8T 0C6, Canada",
-    href: "https://maps.google.com/?q=25415+Terrault+Rd,+Sturgeon+County,+AB+T8T+0C6",
+    value: "3612 40th Avenue NW, Edmonton, AB T6L6M8 Canada",
+    href: "https://www.google.com/maps/search/?api=1&query=3612%2040th%20Avenue%20NW%2C%20Edmonton%2C%20AB%20T6L%206M8",
     color: "bg-primary-container/30 text-maple-red",
   },
   {
@@ -40,7 +40,6 @@ export default function Contact() {
     <section id="contact" className="py-20 bg-background text-left">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
           {/* Left Column - Contact Details */}
           <motion.div
             className="space-y-8"
@@ -51,14 +50,17 @@ export default function Contact() {
           >
             <div>
               <span className="inline-flex items-center gap-2 bg-primary-container/30 text-on-primary-container text-xs font-bold px-4 py-2 rounded-full mb-5 border border-primary-container/50">
-                <span className="material-symbols-outlined text-[14px]">call</span>
+                <span className="material-symbols-outlined text-[14px]">
+                  call
+                </span>
                 Get In Touch
               </span>
               <h2 className="text-3xl font-bold font-headline-md text-on-surface leading-tight">
                 We're Here to <span className="text-maple-red">Help.</span>
               </h2>
               <p className="mt-3 text-secondary text-sm leading-relaxed max-w-md">
-                Reach out through any channel below. Our team responds to all inquiries within one business day.
+                Reach out through any channel below. Our team responds to all
+                inquiries within one business day.
               </p>
             </div>
 
@@ -78,7 +80,9 @@ export default function Contact() {
                     {item.href ? (
                       <a
                         href={item.href}
-                        target={item.href.startsWith("http") ? "_blank" : undefined}
+                        target={
+                          item.href.startsWith("http") ? "_blank" : undefined
+                        }
                         rel="noopener noreferrer"
                         className="text-xs font-bold text-on-surface hover:text-maple-red transition-colors break-words inline-flex items-center gap-1"
                       >
@@ -105,7 +109,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.15 }}
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2348.601700465225!2d-113.62649069999999!3d53.7547476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x53a04294ca23737b%3A0xe54d8fb851e36780!2s25415+Terrault+Rd%2C+Sturgeon+County%2C+AB+T8T+0C6%2C+Canada!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps?q=3612%2040th%20Avenue%20NW%2C%20Edmonton%2C%20AB%20T6L%206M8%2C%20Canada&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, display: "block" }}
@@ -115,7 +119,6 @@ export default function Contact() {
               title="Sunbloom Immigration — Sturgeon County, AB Office Location Map"
             />
           </motion.div>
-
         </div>
       </div>
     </section>

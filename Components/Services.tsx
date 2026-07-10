@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
-import { ServicePackage, DEFAULT_SERVICES } from "@/lib/firebase/services";
+import { ServicePackage } from "@/lib/firebase/services";
 import { ChevronDown, ArrowRight } from "lucide-react";
 
 type Service = {
@@ -15,7 +15,6 @@ type Service = {
   tagColor: string;
   imageUrl?: string;
 };
-
 
 function ServiceIcon({ name, size = 22 }: { name: string; size?: number }) {
   const IconComponent = (Icons as any)[name];
@@ -58,15 +57,24 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
 
   // Curated fallback default images based on title
   const defaultImages: Record<string, string> = {
-    "Express Entry 2.0": "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80",
-    "PNP Specialized": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-    "Visitor Visa & Travel": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
-    "Work & Study Permits": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
-    "Start-up & Corporate": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
-    "Family Sponsorship": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80",
+    "Express Entry 2.0":
+      "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80",
+    "PNP Specialized":
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    "Visitor Visa & Travel":
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+    "Work & Study Permits":
+      "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80",
+    "Start-up & Corporate":
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
+    "Family Sponsorship":
+      "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=600&q=80",
   };
 
-  const cardImage = service.imageUrl || defaultImages[service.title] || "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80";
+  const cardImage =
+    service.imageUrl ||
+    defaultImages[service.title] ||
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80";
 
   return (
     <div
@@ -127,7 +135,10 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
                 key={i}
                 className="flex items-start gap-2.5 text-xs text-secondary"
               >
-                <ArrowRight size={13} className="text-maple-red mt-0.5 shrink-0" />
+                <ArrowRight
+                  size={13}
+                  className="text-maple-red mt-0.5 shrink-0"
+                />
                 <span className="leading-relaxed">{item}</span>
               </div>
             ))}
@@ -174,18 +185,15 @@ interface ServicesProps {
 }
 
 const Services = ({ services }: ServicesProps) => {
-  const displayServices: Service[] =
-    services && services.length > 0
-      ? services.map((s) => ({
-          icon: s.icon,
-          title: s.title,
-          desc: s.desc,
-          tag: s.tag,
-          tagColor: s.tagColor,
-          details: s.details,
-          imageUrl: s.imageUrl,
-        }))
-      : (DEFAULT_SERVICES as Service[]);
+  const displayServices: Service[] = (services || []).map((s) => ({
+    icon: s.icon,
+    title: s.title,
+    desc: s.desc,
+    tag: s.tag,
+    tagColor: s.tagColor,
+    details: s.details,
+    imageUrl: s.imageUrl,
+  }));
 
   return (
     <section id="services" className="py-20 bg-background">

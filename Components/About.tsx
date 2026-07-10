@@ -58,7 +58,8 @@ const About = () => {
                     CICC Authorized & Licensed
                   </h4>
                   <p className="text-sm font-semibold text-secondary mt-0.5">
-                    Rajveer Kaur Gill (RCIC Consultant | College ID: R1054053)
+                    Rajveer Kaur Gill (RCIC-IRB Consultant | College ID:
+                    R1054053)
                   </p>
                   <p className="text-xs text-secondary mt-1 max-w-md leading-relaxed">
                     Fully authorized by the College of Immigration and

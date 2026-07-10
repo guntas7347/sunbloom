@@ -11,7 +11,7 @@ import {
   query,
 } from "firebase/firestore";
 import { db } from "./firebase";
-import { revalidatePaths } from "../revalidatePath";
+import { revalidatePaths, revalidateOath } from "../revalidatePath";
 
 export interface OathDoc {
   id?: string;
@@ -118,20 +118,20 @@ export async function createOathDoc(data: Omit<OathDoc, "id" | "createdAt">) {
     createdAt: serverTimestamp(),
   };
   const ref = await addDoc(collection(db, DOCS_COL), payload);
-  revalidatePaths(["/oath"]);
+  await revalidateOath(["oath-docs"]);
   return ref.id;
 }
 
 export async function updateOathDoc(id: string, data: Partial<Omit<OathDoc, "id" | "createdAt">>) {
   const ref = doc(db, DOCS_COL, id);
   await updateDoc(ref, data);
-  revalidatePaths(["/oath"]);
+  await revalidateOath(["oath-docs"]);
 }
 
 export async function deleteOathDoc(id: string) {
   const ref = doc(db, DOCS_COL, id);
   await deleteDoc(ref);
-  revalidatePaths(["/oath"]);
+  await revalidateOath(["oath-docs"]);
 }
 
 export async function seedOathDocs() {
@@ -143,7 +143,7 @@ export async function seedOathDocs() {
     };
     await addDoc(collection(db, DOCS_COL), payload);
   }
-  revalidatePaths(["/oath"]);
+  await revalidateOath(["oath-docs"]);
 }
 
 /* ========================================================
@@ -184,20 +184,20 @@ export async function createOathFaq(data: Omit<OathFaq, "id" | "createdAt">) {
     createdAt: serverTimestamp(),
   };
   const ref = await addDoc(collection(db, FAQS_COL), payload);
-  revalidatePaths(["/oath"]);
+  await revalidateOath(["oath-faqs"]);
   return ref.id;
 }
 
 export async function updateOathFaq(id: string, data: Partial<Omit<OathFaq, "id" | "createdAt">>) {
   const ref = doc(db, FAQS_COL, id);
   await updateDoc(ref, data);
-  revalidatePaths(["/oath"]);
+  await revalidateOath(["oath-faqs"]);
 }
 
 export async function deleteOathFaq(id: string) {
   const ref = doc(db, FAQS_COL, id);
   await deleteDoc(ref);
-  revalidatePaths(["/oath"]);
+  await revalidateOath(["oath-faqs"]);
 }
 
 export async function seedOathFaqs() {
@@ -209,5 +209,5 @@ export async function seedOathFaqs() {
     };
     await addDoc(collection(db, FAQS_COL), payload);
   }
-  revalidatePaths(["/oath"]);
+  await revalidateOath(["oath-faqs"]);
 }
