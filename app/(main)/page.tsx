@@ -15,6 +15,7 @@ import { getActiveServices } from "@/lib/firebase/services";
 const App = async () => {
   const faqs = await getAllFaqs();
   const services = await getActiveServices();
+
   return (
     <main>
       <Hero />

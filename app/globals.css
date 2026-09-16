@@ -109,3 +109,95 @@ body {
     "opsz" 24;
   vertical-align: middle;
 }
+
+/* Rich content styling for service pages */
+.service-prose {
+  color: var(--on-surface);
+  line-height: 1.8;
+  font-size: 1.025rem;
+}
+
+.service-prose h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-top: 2rem;
+  margin-bottom: 0.85rem;
+  line-height: 1.3;
+  border-bottom: 2px solid var(--outline-variant);
+  padding-bottom: 0.5rem;
+}
+
+.service-prose h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.service-prose h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--on-surface);
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-prose p {
+  margin-bottom: 1.25rem;
+  color: var(--secondary);
+}
+
+.service-prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  space-y: 0.5rem;
+}
+
+.service-prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  space-y: 0.5rem;
+}
+
+.service-prose li {
+  margin-bottom: 0.5rem;
+  color: var(--secondary);
+}
+
+.service-prose strong {
+  color: var(--on-surface);
+  font-weight: 600;
+}
+
+.service-prose em {
+  font-style: italic;
+}
+
+.service-prose blockquote {
+  border-left: 4px solid #8b2626;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--secondary);
+  background-color: var(--surface-container);
+  padding: 1rem 1.25rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.service-prose a {
+  color: #8b2626;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.service-prose a:hover {
+  opacity: 0.8;
+}
+

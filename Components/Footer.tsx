@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
   const handleSubscribe = (e: React.FormEvent) => {
@@ -33,19 +34,24 @@ const Footer = () => {
           <h4 className="font-bold text-on-surface uppercase tracking-wider text-xs">Quick Links</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="#services">
-                Immigration Services
-              </a>
+              <Link className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="/services/express-entry">
+                Express Entry 2.0
+              </Link>
             </li>
             <li>
-              <a className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="#strategy">
-                Rural & Northern Streams
-              </a>
+              <Link className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="/services/pnp-specialized">
+                PNP Specialized
+              </Link>
             </li>
             <li>
-              <a className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="#strategy">
-                Francophone Mobility
-              </a>
+              <Link className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="/services/work-and-study-permits">
+                Work & Study Permits
+              </Link>
+            </li>
+            <li>
+              <Link className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="/oath">
+                Commissioner for Oaths
+              </Link>
             </li>
           </ul>
         </div>
@@ -55,19 +61,19 @@ const Footer = () => {
           <h4 className="font-bold text-on-surface uppercase tracking-wider text-xs">Support</h4>
           <ul className="space-y-2 text-sm">
             <li>
-              <a className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="#appointment">
+              <Link className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="/intake-form">
                 Free Assessment
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="#">
-                Privacy Policy
-              </a>
+              <Link className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="/#appointment">
+                Book Consultation
+              </Link>
             </li>
             <li>
-              <a className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="#">
-                Terms of Service
-              </a>
+              <Link className="text-secondary hover:text-maple-red hover:translate-x-1 transition-all inline-block" href="/#faq">
+                Immigration FAQ
+              </Link>
             </li>
           </ul>
         </div>

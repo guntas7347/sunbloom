@@ -7,9 +7,10 @@ import "quill/dist/quill.snow.css";
 type Props = {
   value: string;
   onChange: (v: string) => void;
+  placeholder?: string;
 };
 
-export default function QuillEditor({ value, onChange }: Props) {
+export default function QuillEditor({ value, onChange, placeholder = "Write rich content here..." }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
   const quill = useRef<Quill | null>(null);
 
@@ -18,21 +19,24 @@ export default function QuillEditor({ value, onChange }: Props) {
 
     quill.current = new Quill(ref.current, {
       theme: "snow",
+      placeholder,
       modules: {
         toolbar: {
           container: [
-            [{ size: ["small", false, "large", "huge"] }],
-            ["bold", "italic"],
+            [{ header: [1, 2, 3, 4, false] }],
+            ["bold", "italic", "underline", "strike"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            ["blockquote", "link"],
+            ["clean"],
           ],
         },
       },
-      formats: ["size", "bold", "italic"],
     });
 
     quill.current.on("text-change", () => {
       onChange(quill.current!.root.innerHTML);
     });
-  }, [onChange]);
+  }, [onChange, placeholder]);
 
   useEffect(() => {
     if (!quill.current) return;
@@ -42,5 +46,9 @@ export default function QuillEditor({ value, onChange }: Props) {
     }
   }, [value]);
 
-  return <div className="border-none" ref={ref} />;
+  return (
+    <div className="quill-editor-wrapper bg-white">
+      <div className="min-h-[280px]" ref={ref} />
+    </div>
+  );
 }

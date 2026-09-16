@@ -3,10 +3,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
-import { ServicePackage } from "@/lib/firebase/services";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ServicePackage, slugify } from "@/lib/firebase/services";
+import { ChevronDown, ArrowRight, ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 type Service = {
+  slug: string;
   icon: string;
   title: string;
   desc: string;
@@ -76,81 +78,110 @@ function ServiceCard({ service, index }: { service: Service; index: number }) {
     defaultImages[service.title] ||
     "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80";
 
+  const serviceSlug = service.slug || slugify(service.title);
+
   return (
     <div
       onClick={() => setOpen((o) => !o)}
-      className={`cursor-pointer bg-surface-container-high rounded-xl border border-outline-variant/20 hover:-translate-y-2 transition-all duration-300 select-none overflow-hidden ${
+      className={`cursor-pointer bg-surface-container-high rounded-xl border border-outline-variant/20 hover:-translate-y-2 transition-all duration-300 select-none overflow-hidden flex flex-col justify-between ${
         index === 0 ? "border-t-4 border-t-maple-red" : ""
       } ${open ? "shadow-xl ring-1 ring-maple-red/20" : "hover:shadow-lg"}`}
     >
-      {/* Featured Card Image */}
-      <div className="relative w-full h-44 overflow-hidden bg-muted">
-        <img
-          src={cardImage}
-          alt={service.title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-        />
-        {/* Subtle dark gradient overlay over image bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-      </div>
-
-      {/* Card Content Container */}
-      <div className="p-6">
-        {/* Card Header */}
-        <div className="flex items-start gap-4">
-          <div
-            className={`p-2.5 rounded-lg text-maple-red bg-primary-container/30 shrink-0`}
-          >
-            <ServiceIcon name={service.icon} size={22} />
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 flex-wrap mb-1">
-              <h3 className="text-base font-bold text-on-surface leading-snug">
-                {service.title}
-              </h3>
-              <span
-                className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${service.tagColor}`}
-              >
-                {service.tag}
-              </span>
-            </div>
-            <p className="text-xs text-secondary leading-relaxed mt-2 line-clamp-3">
-              {service.desc}
-            </p>
-          </div>
-          <span
-            className={`material-symbols-outlined text-secondary transition-transform duration-300 mt-1 shrink-0 ${
-              open ? "rotate-180 text-maple-red" : ""
-            }`}
-          >
-            keyboard_arrow_down
-          </span>
+      <div>
+        {/* Featured Card Image */}
+        <div className="relative w-full h-44 overflow-hidden bg-muted">
+          <img
+            src={cardImage}
+            alt={service.title}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          />
+          {/* Subtle dark gradient overlay over image bottom */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
         </div>
 
-        {/* Expandable details */}
-        <ExpandPanel open={open}>
-          <div className="pt-4 mt-4 border-t border-dashed border-outline-variant/20 space-y-2 text-left">
-            {service.details.map((item, i) => (
-              <div
-                key={i}
-                className="flex items-start gap-2.5 text-xs text-secondary"
-              >
-                <ArrowRight
-                  size={13}
-                  className="text-maple-red mt-0.5 shrink-0"
-                />
-                <span className="leading-relaxed">{item}</span>
-              </div>
-            ))}
-            <a
-              href="#appointment"
-              onClick={(e) => e.stopPropagation()}
-              className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-maple-red hover:underline"
+        {/* Card Content Container */}
+        <div className="p-6">
+          {/* Card Header */}
+          <div className="flex items-start gap-4">
+            <div
+              className={`p-2.5 rounded-lg text-maple-red bg-primary-container/30 shrink-0`}
             >
-              Book a consultation <ArrowRight size={12} />
-            </a>
+              <ServiceIcon name={service.icon} size={22} />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap mb-1">
+                <h3 className="text-base font-bold text-on-surface leading-snug">
+                  {service.title}
+                </h3>
+                <span
+                  className={`text-[9px] font-bold px-2 py-0.5 rounded-full ${service.tagColor}`}
+                >
+                  {service.tag}
+                </span>
+              </div>
+              <p className="text-xs text-secondary leading-relaxed mt-2 line-clamp-3">
+                {service.desc}
+              </p>
+            </div>
+            <span
+              className={`material-symbols-outlined text-secondary transition-transform duration-300 mt-1 shrink-0 ${
+                open ? "rotate-180 text-maple-red" : ""
+              }`}
+            >
+              keyboard_arrow_down
+            </span>
           </div>
-        </ExpandPanel>
+
+          {/* Expandable details */}
+          <ExpandPanel open={open}>
+            <div className="pt-4 mt-4 border-t border-dashed border-outline-variant/20 space-y-2 text-left">
+              {service.details.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-start gap-2.5 text-xs text-secondary"
+                >
+                  <ArrowRight
+                    size={13}
+                    className="text-maple-red mt-0.5 shrink-0"
+                  />
+                  <span className="leading-relaxed">{item}</span>
+                </div>
+              ))}
+              <div className="pt-3 flex items-center justify-between">
+                <a
+                  href="#appointment"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-maple-red hover:underline"
+                >
+                  Book a consultation <ArrowRight size={12} />
+                </a>
+                <Link
+                  href={`/services/${serviceSlug}`}
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1 text-xs font-bold text-secondary hover:text-maple-red transition-colors"
+                >
+                  Full Details <ExternalLink size={11} />
+                </Link>
+              </div>
+            </div>
+          </ExpandPanel>
+        </div>
+      </div>
+
+      {/* Card Footer Action Bar */}
+      <div className="px-6 pb-5 pt-0 flex items-center justify-between border-t border-outline-variant/10">
+        <Link
+          href={`/services/${serviceSlug}`}
+          onClick={(e) => e.stopPropagation()}
+          className="inline-flex items-center gap-1 text-xs font-bold text-maple-red hover:translate-x-0.5 transition-transform"
+        >
+          <span>Explore Pathway</span>
+          <ArrowRight size={13} />
+        </Link>
+
+        <span className="text-[11px] text-secondary/60">
+          {open ? "Click to collapse" : "Click to view features"}
+        </span>
       </div>
     </div>
   );
@@ -186,6 +217,7 @@ interface ServicesProps {
 
 const Services = ({ services }: ServicesProps) => {
   const displayServices: Service[] = (services || []).map((s) => ({
+    slug: s.slug || slugify(s.title),
     icon: s.icon,
     title: s.title,
     desc: s.desc,

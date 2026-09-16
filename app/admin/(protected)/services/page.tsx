@@ -2,7 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { getServicesPage, ServicePackage } from "@/lib/firebase/services";
+import {
+  getServicesPage,
+  ServicePackage,
+  seedOrMigrateServices,
+} from "@/lib/firebase/services";
 import Link from "next/link";
 import * as Icons from "lucide-react";
 import {
@@ -12,6 +16,9 @@ import {
   Edit2,
   ChevronLeft,
   ChevronRight,
+  ExternalLink,
+  RefreshCw,
+  Globe,
 } from "lucide-react";
 
 function ServiceIcon({ name, size = 18 }: { name: string; size?: number }) {
@@ -26,6 +33,7 @@ export default function ServicesTablePage() {
 
   const [services, setServices] = useState<ServicePackage[]>([]);
   const [loading, setLoading] = useState(false);
+  const [syncing, setSyncing] = useState(false);
   const [hasMore, setHasMore] = useState(true);
 
   const page = Number(params.get("page") || "1");
@@ -35,7 +43,6 @@ export default function ServicesTablePage() {
     let cursor: any = null;
     let result: any = null;
 
-    // Reload logic (preserved from your original code)
     for (let i = 1; i <= page; i++) {
       result = await getServicesPage(20, cursor);
       cursor = result.lastDoc;
@@ -44,6 +51,14 @@ export default function ServicesTablePage() {
     setServices(result.items);
     setHasMore(result.hasMore);
     setLoading(false);
+  }
+
+  async function handleSync() {
+    setSyncing(true);
+    await seedOrMigrateServices();
+    await load();
+    setSyncing(false);
+    alert("Services migrated and synced successfully with rich default content!");
   }
 
   useEffect(() => {
@@ -63,17 +78,29 @@ export default function ServicesTablePage() {
             Services
           </h1>
           <p className="text-gray-500 mt-1">
-            Manage your service offerings and packages.
+            Manage your service offerings, dedicated landing pages, and CMS content.
           </p>
         </div>
 
-        <Link
-          href="/admin/services/edit"
-          className="flex items-center justify-center gap-2 bg-black hover:bg-gray-800 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all shadow-sm"
-        >
-          <Plus size={18} />
-          Add Service
-        </Link>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleSync}
+            disabled={syncing || loading}
+            className="flex items-center gap-2 bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2.5 rounded-lg text-sm font-medium transition-all shadow-sm disabled:opacity-50"
+            title="Populate/update missing services and default content"
+          >
+            <RefreshCw size={16} className={syncing ? "animate-spin" : ""} />
+            {syncing ? "Syncing..." : "Sync / Migrate Defaults"}
+          </button>
+
+          <Link
+            href="/admin/services/edit"
+            className="flex items-center justify-center gap-2 bg-black hover:bg-gray-800 text-white px-5 py-2.5 rounded-lg text-sm font-medium transition-all shadow-sm"
+          >
+            <Plus size={18} />
+            Add Service
+          </Link>
+        </div>
       </div>
 
       {/* --- Content Card --- */}
@@ -96,14 +123,22 @@ export default function ServicesTablePage() {
               No services found
             </h3>
             <p className="text-gray-500 mt-1 mb-6">
-              Create your first service package to get started.
+              Create your first service package or sync default core services.
             </p>
-            <Link
-              href="/admin/services/edit"
-              className="text-indigo-600 font-medium hover:underline"
-            >
-              Create Service &rarr;
-            </Link>
+            <div className="flex items-center justify-center gap-4">
+              <button
+                onClick={handleSync}
+                className="px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:bg-gray-800"
+              >
+                Sync Default Services
+              </button>
+              <Link
+                href="/admin/services/edit"
+                className="text-indigo-600 font-medium hover:underline text-sm"
+              >
+                Create Custom Service &rarr;
+              </Link>
+            </div>
           </div>
         )}
 
@@ -113,12 +148,12 @@ export default function ServicesTablePage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-gray-50 border-b border-gray-200 text-xs uppercase text-gray-500 font-semibold tracking-wider">
-                  <th className="px-6 py-4 w-1/4">Service Title</th>
+                  <th className="px-6 py-4 w-1/4">Service & Route</th>
                   <th className="px-6 py-4 w-1/6">Tag</th>
-                  <th className="px-6 py-4 w-5/12">Description</th>
-                  <th className="px-6 py-4 w-1/12 text-center">Details</th>
+                  <th className="px-6 py-4 w-1/3">Description</th>
+                  <th className="px-6 py-4 w-1/12 text-center">Highlights</th>
                   <th className="px-6 py-4 w-1/12">Status</th>
-                  <th className="px-6 py-4 text-right">Action</th>
+                  <th className="px-6 py-4 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -127,22 +162,31 @@ export default function ServicesTablePage() {
                     key={s.id}
                     className="hover:bg-gray-50/50 transition-colors group"
                   >
-                    {/* Title */}
+                    {/* Title & Slug */}
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg">
+                        <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg shrink-0">
                           <ServiceIcon name={s.icon} />
                         </div>
-                        <span className="font-semibold text-gray-900">
-                          {s.title}
-                        </span>
+                        <div>
+                          <span className="font-semibold text-gray-900 block">
+                            {s.title}
+                          </span>
+                          <span className="text-xs font-mono text-gray-400">
+                            /services/{s.slug || s.id}
+                          </span>
+                        </div>
                       </div>
                     </td>
 
                     {/* Tag */}
                     <td className="px-6 py-4">
-                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${s.tagColor || 'bg-gray-100 text-gray-800'}`}>
-                        {s.tag || 'None'}
+                      <span
+                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                          s.tagColor || "bg-gray-100 text-gray-800"
+                        }`}
+                      >
+                        {s.tag || "None"}
                       </span>
                     </td>
 
@@ -175,13 +219,25 @@ export default function ServicesTablePage() {
 
                     {/* Actions */}
                     <td className="px-6 py-4 text-right">
-                      <Link
-                        href={`/admin/services/edit?slug=${s.id}`}
-                        className="inline-flex items-center justify-center p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-colors"
-                        title="Edit Service"
-                      >
-                        <Edit2 size={18} />
-                      </Link>
+                      <div className="flex items-center justify-end gap-1">
+                        {s.slug && (
+                          <Link
+                            href={`/services/${s.slug}`}
+                            target="_blank"
+                            className="inline-flex items-center justify-center p-2 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded-md transition-colors"
+                            title="View Dedicated Public Page"
+                          >
+                            <Globe size={18} />
+                          </Link>
+                        )}
+                        <Link
+                          href={`/admin/services/edit?slug=${s.id}`}
+                          className="inline-flex items-center justify-center p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-md transition-colors"
+                          title="Edit Service & Page Content"
+                        >
+                          <Edit2 size={18} />
+                        </Link>
+                      </div>
                     </td>
                   </tr>
                 ))}
